@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-ROOT='/home/deploy/readon-widget-test'
+ROOT='/home/deploy/infinite'
 USER='deploy'
 
 SERVER=''
 if [[ "production" = $1 ]]; then
-  SERVER='widget.daf-demo.website'
+  SERVER='test3.infinite.industries'
 elif [[ "staging" = $1 ]]; then
-  SERVER='widget.daf-demo.website'
+  SERVER='test3.infinite.industries'  #not used yet
 else
   echo Please specify environment to deploy to.
   echo Usage: ./deploy.sh environment
@@ -24,8 +24,8 @@ ssh $USER@$SERVER << EOF
   echo 'Installing npm packages'
   npm install
   echo 'Restarting'
-  forever stop widget
-  rm /home/$USER/.forever/widget.log
-  forever start --uid widget index.js
+  forever stop infinite
+  rm /home/$USER/.forever/infinite.log
+  forever start --uid infinite index.js
   echo 'Done!'
 EOF

@@ -4,7 +4,8 @@
   "description": "database and for art work/event management and presentation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "./deploy.sh production"
   },
   "keywords": [
     "art",
