@@ -1,5 +1,5 @@
 {
 	"undefined": "mongodb://localhost/infinite-api",
-	"dev": "mongodb://localhost/infinite-api",
+	"dev": "mongoose.connect(process.env.DB);",
 	"prod": "localhost/PROD_DB_NAME"
 }

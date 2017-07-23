@@ -2,9 +2,19 @@
 
 var express = require('express');
 var path = require('path');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
 
 var app = express();
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var artworks = require('./routes/artworks');
+app.use('/artworks', artworks);
+
+mongoose.connect('mongodb://localhost/infinite-api');
+
 
 var appPort = process.env.PORT || '3003';
 

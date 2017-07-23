@@ -1,0 +1,48 @@
+[
+  {
+    "title": "Bad Wolf",
+    "id": "cc432195-2a2c-49e4-9a55-32d9f10dcc97",
+    "description": "Ut ipsum voluptate minim ea est anim voluptate ea consequat.",
+    "tags": ["beautiful","art","puppies"],
+    "artist_name": "obi mobi",
+    "artist_id": "72c045a7-1596-4961-a74d-396fd655e63d",
+    "img_url": "http://gamepodunk.com/uploads//gallery/album_8/gallery_4_8_51998.jpg",
+    "presenter_curator": "Dima S",
+    "presenter_curator_id": "0c231a5d-fa96-4c96-be57-b049b87098b6",
+    "has_venue": false,
+    "sale_status": "NFS",
+    "has_distro_method": false
+  },
+  {
+    "title": "Bad Wolf part 1.5",
+    "id": "194fe7e5-546a-4824-ac5e-0a09b345475b",
+    "description": "Ut ipsum voluptate minim ea est anim voluptate ea consequat.",
+    "tags": ["beautiful","art","puppies"],
+    "artist_name": "obi mobi",
+    "artist_id": "72c045a7-1596-4961-a74d-396fd655e63d",
+    "img_url": "http://gamepodunk.com/uploads//gallery/album_8/gallery_4_8_51998.jpg",
+    "presenter_curator": "Dima S",
+    "presenter_curator_id": "0c231a5d-fa96-4c96-be57-b049b87098b6",
+    "has_venue": false,
+    "sale_status": "NFS",
+    "has_distro_method": false
+  },
+  {
+    "title": "Bad Wolf part 2",
+    "id": "cc432195-2a2c-49e4-9a55-32d9f10dcc97",
+    "description": "Ut ipsum voluptate minim ea est anim voluptate ea consequat.",
+    "tags": ["beautiful","art","pokemon"],
+    "artist_name": "obi mobi",
+    "artist_id": "72c045a7-1596-4961-a74d-396fd655e63d",
+    "img_url": "http://gamepodunk.com/uploads//gallery/album_8/gallery_4_8_51998.jpg",
+    "presenter_curator": "Dima S",
+    "presenter_curator_id": "0c231a5d-fa96-4c96-be57-b049b87098b6",
+    "has_venue": true,
+    "presenter_venue": "Dog Park Gallery",
+    "presenter_venue_id": "db18e4fe-1d19-4ee0-ac67-602e8d304327",
+    "sale_status": "NFS",
+    "has_distro_method": true,
+    "distro_id": "cb2d04ce-582a-42da-b6e0-06146440e73c"
+  }
+
+]
