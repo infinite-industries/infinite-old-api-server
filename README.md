@@ -22,6 +22,9 @@ Note: currently API key and corresponding middleware are omitted from this proje
 
 ### Get Artwork info by ID
 curl -H "Content-Type: application/json" -X POST -d '{"artwork_id":"cc432195-2a2c-49e4-9a55-32d9f10dcc97"}' http://localhost:3003/artworks/one-by-id
+<p> or </p>
+curl -H "Content-Type: application/json" -X POST -d '{"artwork_id":"cc432195-2a2c-49e4-9a55-32d9f10dcc97"}' https://test3.infinite.industries/artworks/one-by-id
+
 
 ### Get Event info by ID
 
