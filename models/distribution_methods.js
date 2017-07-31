@@ -1,5 +1,5 @@
 // construct a way to sell/give away/list gallery contact for an artwork
-// this one is definitely in the later phase implementation bucket
+// this one is definitely an entity for the later phase of the project
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
