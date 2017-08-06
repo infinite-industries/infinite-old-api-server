@@ -9,6 +9,11 @@ const artistSchema = new Schema({
   portrait_img: String,
   contact_email: String,
   email_is_public: Boolean,
+  website: String,
+  facebook: String,
+  twitter: String,
+  instagram: String,
+  blog: String,
   also_curator: Boolean,
   curator_id: String
   updated: { type: Date, default: Date.now }
