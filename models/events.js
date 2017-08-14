@@ -29,7 +29,7 @@ const eventSchema = new Schema({
   location_street: String,      // intentionally duplicate of venue entity field
 
   website_link: String,
-  facebook_event_link: String,
+  facebook_event_link: String
 
 }, {collection: "events"});
 

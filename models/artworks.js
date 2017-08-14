@@ -8,7 +8,7 @@ const artworkSchema = new Schema({
   id: String,
   description: String,
   tags: Array,
-  artist_name: String,
+  artists_name: Array,
   artist_id: String,
   img_url: String,
   presenter_curator: String,
@@ -19,6 +19,7 @@ const artworkSchema = new Schema({
   sale_status: String,
   has_distro_method: Boolean,
   distro_id: String,
+  notes: String,
   updated: { type: Date, default: Date.now }
 }, {collection: "artworks"});
 

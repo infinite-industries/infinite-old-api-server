@@ -5,7 +5,7 @@
       <side-menu-desktop></side-menu-desktop>
     </v-navigation-drawer>
 
-    <v-toolbar class="teal" dark>
+    <v-toolbar class="deep-purple darken-1" dark>
       <v-toolbar-title>Infinite Industries: Curator Dashboard Prototype</v-toolbar-title>
     </v-toolbar>
 

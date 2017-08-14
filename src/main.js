@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Axios from 'axios';
 import Vuetify from 'vuetify';
+import VueFormGenerator from "vue-form-generator";
 
 import App from './App.vue';
 
@@ -13,6 +14,7 @@ import AddEvent from './pages/AddEvent.vue';
 
 Vue.use(VueRouter);
 Vue.use(Vuetify);
+Vue.use(VueFormGenerator);
 
 const router = new VueRouter({
     routes: [
