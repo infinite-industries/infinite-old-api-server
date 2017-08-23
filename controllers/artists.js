@@ -9,9 +9,5 @@ module.exports = {
 
     all: function(callback) {
         ArtistModel.find({}, callback);
-    },
-
-    allFieldRestricted: function(fieldRestrictions, callback) {
-        ArtistModel.find({}, fieldRestrictions, callback);
     }
 }
