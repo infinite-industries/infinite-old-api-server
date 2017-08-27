@@ -25,7 +25,7 @@ const eventSchema = new Schema({
   location_country: String,     // intentionally duplicate of venue entity field
   location_city: String,        // intentionally duplicate of venue entity field
   location_state: String,       // intentionally duplicate of venue entity field
-  location_neighborhood: String // intentionally duplicate of venue entity field
+  location_neighborhood: String, // intentionally duplicate of venue entity field
   location_street: String,      // intentionally duplicate of venue entity field
 
   website_link: String,

@@ -12,7 +12,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var artworks = require('./routes/artworks');
+const artists = require('./routes/artists');
 app.use('/artworks', artworks);
+app.use('/artists', artists);
 
 mongoose.connect('mongodb://localhost/infinite-api');
 

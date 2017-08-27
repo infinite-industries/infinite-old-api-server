@@ -10,7 +10,7 @@ const artistSchema = new Schema({
   contact_email: String,
   email_is_public: Boolean,
   also_curator: Boolean,
-  curator_id: String
+  curator_id: String,
   updated: { type: Date, default: Date.now }
 }, {collection: "artists"});
 
