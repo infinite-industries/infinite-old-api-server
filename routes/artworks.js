@@ -41,7 +41,7 @@ router.get("/random", function(req, res) {
             return res.status(500).json({ status: constants.db_error });
         }
 
-        res.status(200).json({ artWork: chosenArt });
+        res.status(200).json({ artwork: chosenArt });
     });
 
     // ==== Private Helpers ====
