@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 const eventSchema = new Schema({
   title: String,
   id: String,
+  type: String,
   description: String,
   tags: Array,
   status: String, //can cancel and/or postpone events here
@@ -30,6 +31,8 @@ const eventSchema = new Schema({
 
   website_link: String,
   facebook_event_link: String,
+
+  notes: String
 
 }, {collection: "events"});
 
