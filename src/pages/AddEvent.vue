@@ -5,6 +5,18 @@
     <v-card>
       <v-card-title class="dashboard-title">Add Event</v-card-title>
       <v-card-text>
+
+        <v-menu offset-y>
+          <v-btn primary dark slot="activator">Choose a venue </v-btn>
+          <v-list>
+            <v-list-tile v-for="item in items" :key="item.title">
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
+
+        or enter the location in the form below
+
         <vue-form-generator :schema="schema" :model="model"></vue-form-generator>
 
         <div class="text-xs-right form-submit-button-container">
@@ -20,32 +32,6 @@
 
 <script>
   export default {
-    // title: String,
-
-    // description: String,
-    // tags: Array,
-    // status: String, //can cancel and/or postpone events here
-    // presenter_curator: String,
-    // presenter_curator_id: String,
-    // has_venue: Boolean,
-    // presenter_venue: String,
-    // presenter_venue_id: String,
-    // one_day_event: Boolean,
-    // start_date_time: Date,
-    // end_date_time: Date,
-    // has_opening: Boolean,
-    //
-    // // in case it is NOT a venue (ex. public performance) or
-    // // not a venue that is in the system
-    // location_name: String,
-    // location_country: String,     // intentionally duplicate of venue entity field
-    // location_city: String,        // intentionally duplicate of venue entity field
-    // location_state: String,       // intentionally duplicate of venue entity field
-    // location_neighborhood: String // intentionally duplicate of venue entity field
-    // location_street: String,      // intentionally duplicate of venue entity field
-    //
-    // website_link: String,
-    // facebook_event_link: String
 
     data: function(){
       return {
@@ -76,7 +62,7 @@
             },
             {
               type: "input",
-              inputType: "text",
+              inputType: "textArea",
               label: "Description",
               model: "description",
               required: true
