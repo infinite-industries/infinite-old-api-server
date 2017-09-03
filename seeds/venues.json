@@ -1,0 +1,48 @@
+[
+  {
+
+    "name": "Dusty Broom Gallery",
+    "id": "0e7e4996-aaaa-46ef-93b1-a92b713129eb",
+    "location_country": "USA",
+    "location_city": "Chicago",
+    "location_state": "IL",
+    "location_neighborhood": "Chinatown",
+    "location_street": "Halsted",
+    "website": "artgallery.com",
+    "facebook": "somefb event",
+    "twitter": "some twitter location",
+    "instagram": "String",
+    "blog": "artblog.com/12378as3",
+    "notes": "Park at the Q Book store lot down the street"
+  },
+  {
+    "name": "Very Dusty Broom Gallery",
+    "id": "0e7e4996-aaaa-46ef-93b1-a92b713129eb",
+    "location_country": "USA",
+    "location_city": "Louisville",
+    "location_state": "KY",
+    "location_neighborhood": "Chinatown",
+    "location_street": "Halsted",
+    "website": "artgallery.com",
+    "facebook": "somefb event",
+    "twitter": "some twitter location",
+    "instagram": "String",
+    "blog": "artblog.com/12378as3",
+    "notes": "Park at the Q Book store lot down the street"
+  },
+  {
+    "name": "Super Dusty Broom Gallery",
+    "id": "0e7e4996-cccc-46ef-93b1-a92b713129eb",
+    "location_country": "USA",
+    "location_city": "Lexington",
+    "location_state": "KY",
+    "location_neighborhood": "Downtown",
+    "location_street": "main",
+    "website": "artgallery.com",
+    "facebook": "somefb event",
+    "twitter": "some twitter location",
+    "instagram": "String",
+    "blog": "artblog.com/178as3",
+    "notes": "Park at the Q Book store lot down the street"
+  }
+]
