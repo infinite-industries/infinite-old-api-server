@@ -12,7 +12,7 @@
     "facebook": "somefb event",
     "twitter": "some twitter location",
     "instagram": "String",
-    "blog": "artblog.com/12378as3",
+    "blog": "artblog.com/12378as1",
     "notes": "Park at the Q Book store lot down the street"
   },
   {
@@ -27,8 +27,8 @@
     "facebook": "somefb event",
     "twitter": "some twitter location",
     "instagram": "String",
-    "blog": "artblog.com/12378as3",
-    "notes": "Park at the Q Book store lot down the street"
+    "blog": "artblog.com/12378as2",
+    "notes": "Park at the Q1 Book store lot down the street"
   },
   {
     "name": "Super Dusty Broom Gallery",
@@ -43,6 +43,6 @@
     "twitter": "some twitter location",
     "instagram": "String",
     "blog": "artblog.com/178as3",
-    "notes": "Park at the Q Book store lot down the street"
+    "notes": "Park at the Q2 Book store lot down the street"
   }
 ]

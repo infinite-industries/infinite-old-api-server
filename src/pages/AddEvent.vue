@@ -9,8 +9,8 @@
         <v-menu offset-y>
           <v-btn primary dark slot="activator">Choose a venue </v-btn>
           <v-list>
-            <v-list-tile v-for="item in items" :key="item.title">
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            <v-list-tile v-for="venue in venues" :key="venue.name">
+              <v-list-tile-title>{{ venue.name }}</v-list-tile-title>
             </v-list-tile>
           </v-list>
         </v-menu>
@@ -47,7 +47,9 @@
           location_street: '',
 
           website_link: '',
-          facebook_event_link: ''
+          facebook_event_link: '',
+
+          notes: ''
 
         },
 
@@ -72,7 +74,7 @@
               inputType: "text",
               label: "Venue",
               model: "presenter_venue",
-              required: true
+              required: false
             },
             {
               type: "input",
@@ -129,6 +131,14 @@
               label: "Facebook Event Link",
               model: "facebook_event_link",
               required: false
+            },
+            {
+              type: "input",
+              inputType: "text",
+              label: "Notes",
+              model: "notes",
+              required: false,
+              // styleClasses: "border-color:red"
             }
           ]
         }

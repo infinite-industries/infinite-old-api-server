@@ -10,6 +10,7 @@ import Home from './pages/Home.vue';
 import Settings from './pages/Settings.vue';
 import AddArtwork from './pages/AddArtwork.vue';
 import AddEvent from './pages/AddEvent.vue';
+import ListAllArtworks from './pages/ListAllArtworks.vue';
 
 
 Vue.use(VueRouter);
@@ -38,6 +39,11 @@ const router = new VueRouter({
         name: 'add_event',
         component: AddEvent
       },
+      {
+        path: '/all-artworks',
+        name: 'all_artworks',
+        component: ListAllArtworks
+      }
     ]
   })
 
