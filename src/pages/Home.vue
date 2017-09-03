@@ -5,53 +5,10 @@
     <v-card>
       <v-card-title class="dashboard-title">Your Artworks</v-card-title>
       <v-card-text>
-        <div style="border: 1px solid black; position:relative; padding: 20px; margin-top: 5px">
-          <span>"Still life with Sunflowers"</span>
-          <span> by Dude Macdudly</span>
-          <div style="max-width:300px; display: inline; position:absolute; right: 10px;top: 5px;">
-            <v-btn flat>Delete</v-btn>
-            <v-btn flat primary>Edit</v-btn>
-          </div>
-        </div>
-
-        <div style="border: 1px solid black; position:relative; padding: 20px; margin-top: 5px">
-          <span>"Still life with Sunflowers"</span>
-          <span> by Dude Macdudly</span>
-          <div style="max-width:300px; display: inline; position:absolute; right: 10px;top: 5px;">
-            <v-btn flat>Delete</v-btn>
-            <v-btn flat primary>Edit</v-btn>
-          </div>
-        </div>
-
-        <div style="border: 1px solid black; position:relative; padding: 20px; margin-top: 5px">
-          <span>"Still life with Sunflowers"</span>
-          <span> by Dude Macdudly</span>
-          <div style="max-width:300px; display: inline; position:absolute; right: 10px;top: 5px;">
-            <v-btn flat>Delete</v-btn>
-            <v-btn flat primary>Edit</v-btn>
-          </div>
-        </div>
-
-        <div style="border: 1px solid black; position:relative; padding: 20px; margin-top: 5px">
-          <span>"Still life with Sunflowers"</span>
-          <span> by Dude Macdudly</span>
-          <div style="max-width:300px; display: inline; position:absolute; right: 10px;top: 5px;">
-            <v-btn flat>Delete</v-btn>
-            <v-btn flat primary>Edit</v-btn>
-          </div>
-        </div>
-
-        <div style="border: 1px solid black; position:relative; padding: 20px; margin-top: 5px">
-          <span>"Still life with Sunflowers"</span>
-          <span> by Dude Macdudly</span>
-          <div style="max-width:300px; display: inline; position:absolute; right: 10px;top: 5px;">
-            <v-btn flat>Delete</v-btn>
-            <v-btn flat primary>Edit</v-btn>
-          </div>
-        </div>
+        <artwork-listing :max_entries="4"></artwork-listing>
 
         <div class="text-xs-right form-submit-button-container">
-          <v-btn primary dark class="deep-purple darken-3">See All Artworks</v-btn>
+          <v-btn @click.native.stop="directRoute('/all-artworks')" primary dark class="deep-purple darken-3">See All Artworks</v-btn>
         </div>
       </v-card-text>
     </v-card>
@@ -181,7 +138,17 @@
 </template>
 
 <script>
-  export default {
+  import Axios from 'axios';
+  import ArtworkListing from '../components/ArtworkListing.vue';
 
+  export default {
+    methods: {
+      directRoute: function(set_path){
+        this.$router.push({ path: set_path})
+      }
+    },
+    components: {
+    'artwork-listing': ArtworkListing
+    }
   }
 </script>
