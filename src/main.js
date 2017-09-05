@@ -7,11 +7,17 @@ import VueFormGenerator from "vue-form-generator";
 import App from './App.vue';
 
 import Home from './pages/Home.vue';
-import Settings from './pages/Settings.vue';
+import EditSettings from './pages/EditSettings.vue';
+import EditArtwork from './pages/EditArtwork.vue';
+import EditEvent from './pages/EditEvent.vue';
 import AddArtwork from './pages/AddArtwork.vue';
 import AddEvent from './pages/AddEvent.vue';
+import ListAllActiveEvents from './pages/ListAllActiveEvents.vue';
 import ListAllArtworks from './pages/ListAllArtworks.vue';
-
+import ListAllPastEvents from './pages/ListAllPastEvents.vue';
+import ShowSingleArtwork from './pages/ShowSingleArtwork.vue';
+import ShowSingleEvent from './pages/ShowSingleEvent.vue';
+import ShowSettings from './pages/ShowSettings.vue';
 
 Vue.use(VueRouter);
 Vue.use(Vuetify);
@@ -27,7 +33,22 @@ const router = new VueRouter({
       {
         path: '/settings',
         name: 'settings',
-        component: Settings
+        component: ShowSettings
+      },
+      {
+        path: '/edit-settings',
+        name: 'edit_settings',
+        component: EditSettings
+      },
+      {
+        path: '/edit-event',
+        name: 'edit_event',
+        component: EditEvent
+      },
+      {
+        path: '/edit-artwork',
+        name: 'edit_artwork',
+        component: EditArtwork
       },
       {
         path: '/add-artwork',
@@ -43,7 +64,28 @@ const router = new VueRouter({
         path: '/all-artworks',
         name: 'all_artworks',
         component: ListAllArtworks
+      },
+      {
+        path: '/all-active-events',
+        name: 'all_active_events',
+        component: ListAllActiveEvents
+      },
+      {
+        path: '/all-finished-events',
+        name: 'all_finished_events',
+        component: ListAllPastEvents
+      },
+      {
+        path: '/show-single-artwork',
+        name: 'show_single_artwork',
+        component: ShowSingleArtwork
+      },
+      {
+        path: '/show-single-event',
+        name: 'show_single_event',
+        component: ShowSingleEvent
       }
+
     ]
   })
 

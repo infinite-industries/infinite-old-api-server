@@ -2,7 +2,7 @@
 
   <v-container fluid>
     <v-card>
-      <v-card-title class="dashboard-title">Edit Artwork</v-card-title>
+      <v-card-title class="dashboard-title">Edit Event</v-card-title>
       <v-card-text>
         <!-- <vue-form-generator :schema="schema" :model="model"></vue-form-generator> -->
 
