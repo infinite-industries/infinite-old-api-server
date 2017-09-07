@@ -17,6 +17,8 @@
   import Axios from 'axios';
   import ArtworkListing from '../components/ArtworkListing.vue';
 
+  import EventBus from './helpers/EventBus.js';
+
   export default {
     components: {
     'artwork-listing': ArtworkListing

@@ -17,3 +17,9 @@
   font-size:20px;
   font-weight:bold;
 }
+
+
+/* ========= OVERRIDE VUETIFY ============ */
+.dialog__content{
+  z-index: 100;
+}

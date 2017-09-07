@@ -31,6 +31,8 @@
 </template>
 
 <script>
+  import EventBus from './helpers/EventBus.js';
+  
   export default {
 
     data: function(){

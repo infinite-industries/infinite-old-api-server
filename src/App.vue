@@ -20,8 +20,12 @@
 
 <script>
   import SideMenuDesktop from './components/SideMenuDesktop.vue'
-
+  import EventBus from './helpers/EventBus.js';
+  
   export default {
+    data:{
+
+    },
     mounted: function(){
 
     },

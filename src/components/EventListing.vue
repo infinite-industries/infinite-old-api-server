@@ -7,8 +7,8 @@
           <div>{{event.description}}</div>
         </div>
         <div style="max-width:300px; display: inline; position:absolute; right: 10px;top: 5px;">
-          <v-btn flat>Delete</v-btn>
-          <v-btn flat primary @click.native.stop="directRoute('/edit-event')">Edit</v-btn>
+          <v-btn flat >Delete</v-btn>
+          <v-btn flat primary @click.native.stop="directRoute('/edit-event/'+event.id)">Edit</v-btn>
         </div>
         <!-- {{test}} -->
       </v-card>
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+  import EventBus from './helpers/EventBus.js';
+
   export default {
     name:'EventListing',
     props: ['max_entries'],
@@ -30,7 +32,7 @@
     },
     methods: {
       directRoute: function(set_path){
-        this.$router.push({ path: set_path})
+        this.$router.push({ path: set_path});
       }
     },
     data: function () {
@@ -39,31 +41,38 @@
         events : [
           {
             title: "'dogg 1'",
-            description: "A show by Dogg 1"
+            description: "A show by Dogg 1",
+            id: "dude_1"
           },
           {
             title: "dogg 2",
-            description: "A show by Dogg 2"
+            description: "A show by Dogg 2",
+            id: "dude_2"
           },
           {
             title: "dogg 3",
-            description: "A show by Dogg 3"
+            description: "A show by Dogg 3",
+            id: "dude_3"
           },
           {
             title: "dogg 4",
-            description: "A show by Dogg 4"
+            description: "A show by Dogg 4",
+            id: "dude_4"
           },
           {
             title: "'dogg 5'",
-            description: "A show by Dogg 5"
+            description: "A show by Dogg 5",
+            id: "dude_5"
           },
           {
             title: "dogg 6",
-            description: "A show by Dogg 6"
+            description: "A show by Dogg 6",
+            id: "dude_6"
           },
           {
             title: "dogg 7",
-            description: "A show by Dogg 7"
+            description: "A show by Dogg 7",
+            id: "dude_7"
           }
         ]
       }

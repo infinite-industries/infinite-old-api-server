@@ -4,11 +4,7 @@
     <v-card>
       <v-card-title class="dashboard-title">Past Events</v-card-title>
       <v-card-text>
-        <!-- <vue-form-generator :schema="schema" :model="model"></vue-form-generator> -->
-
-        <div class="text-xs-right form-submit-button-container">
-          <v-btn primary dark class="deep-purple darken-3">ADD</v-btn>
-        </div>
+        <!-- List EVENTS here -->
 
       </v-card-text>
     </v-card>

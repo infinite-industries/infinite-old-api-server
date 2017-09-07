@@ -41,9 +41,10 @@ const router = new VueRouter({
         component: EditSettings
       },
       {
-        path: '/edit-event',
+        path: '/edit-event/:id',
         name: 'edit_event',
-        component: EditEvent
+        component: EditEvent,
+        props: true
       },
       {
         path: '/edit-artwork',

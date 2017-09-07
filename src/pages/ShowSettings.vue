@@ -14,6 +14,8 @@
 </template>
 
 <script>
+  import EventBus from './helpers/EventBus.js';
+  
   export default {
     methods: {
       directRoute: function(set_path){

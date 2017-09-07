@@ -7,7 +7,8 @@
         <!-- <vue-form-generator :schema="schema" :model="model"></vue-form-generator> -->
 
         <div class="text-xs-right form-submit-button-container">
-          <v-btn primary dark class="deep-purple darken-3">ADD</v-btn>
+          <v-btn class="deep-purple darken-3" flat="flat" @click.native.stop="BackToHome()">Cancel</v-btn>
+          <v-btn primary dark class="deep-purple darken-3">SAVE</v-btn>
         </div>
 
       </v-card-text>
@@ -17,7 +18,12 @@
 </template>
 
 <script>
-  export default {
+  import EventBus from './helpers/EventBus.js';
 
+  export default {
+    props: ['id'],
+    mounted: function(){
+      console.log('page id: '+this.id);
+    }
   }
 </script>
