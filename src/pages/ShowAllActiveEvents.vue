@@ -8,7 +8,7 @@
         <!-- <vue-form-generator :schema="schema" :model="model"></vue-form-generator> -->
         ALL events here
         <div class="text-xs-right form-submit-button-container">
-          <v-btn primary dark class="deep-purple darken-3">ADD YOUR EVENT</v-btn>
+          <v-btn primary dark class="deep-purple darken-3" @click.native.stop="DirectRoute('/add-event')">ADD YOUR EVENT</v-btn>
         </div>
 
       </v-card-text>
@@ -18,9 +18,13 @@
 </template>
 
 <script>
-  import EventBus from './helpers/EventBus.js';
+  import EventBus from '../helpers/EventBus.js';
 
   export default {
-
+    methods:{
+      DirectRoute: function(set_path){
+        this.$router.push({ path: set_path})
+      }
+    }
   }
 </script>

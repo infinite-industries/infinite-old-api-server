@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import EventBus from './helpers/EventBus.js';
+  import EventBus from '../helpers/EventBus.js';
 
   export default {
     props: ['id'],

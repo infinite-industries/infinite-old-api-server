@@ -12,9 +12,9 @@ import EditArtwork from './pages/EditArtwork.vue';
 import EditEvent from './pages/EditEvent.vue';
 import AddArtwork from './pages/AddArtwork.vue';
 import AddEvent from './pages/AddEvent.vue';
-import ListAllActiveEvents from './pages/ListAllActiveEvents.vue';
-import ListAllArtworks from './pages/ListAllArtworks.vue';
-import ListAllPastEvents from './pages/ListAllPastEvents.vue';
+import ShowAllActiveEvents from './pages/ShowAllActiveEvents.vue';
+import ShowAllArtworks from './pages/ShowAllArtworks.vue';
+import ShowAllPastEvents from './pages/ShowAllPastEvents.vue';
 import ShowSingleArtwork from './pages/ShowSingleArtwork.vue';
 import ShowSingleEvent from './pages/ShowSingleEvent.vue';
 import ShowSettings from './pages/ShowSettings.vue';
@@ -64,17 +64,17 @@ const router = new VueRouter({
       {
         path: '/all-artworks',
         name: 'all_artworks',
-        component: ListAllArtworks
+        component: ShowAllArtworks
       },
       {
         path: '/all-active-events',
         name: 'all_active_events',
-        component: ListAllActiveEvents
+        component: ShowAllActiveEvents
       },
       {
         path: '/all-finished-events',
         name: 'all_finished_events',
-        component: ListAllPastEvents
+        component: ShowAllPastEvents
       },
       {
         path: '/show-single-artwork',

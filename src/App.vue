@@ -21,12 +21,47 @@
 <script>
   import SideMenuDesktop from './components/SideMenuDesktop.vue'
   import EventBus from './helpers/EventBus.js';
-  
+
   export default {
     data:{
 
     },
     mounted: function(){
+      //--------- All Message Bus events flow here -----------
+      EventBus.$on('CREATE_ARTWORK', function(data){
+        console.log("Creating new entity artwork:");
+        console.log(data);
+      });
+
+      EventBus.$on('UPDATE_ARTWORK', function(data){
+        console.log("Updating entity artwork:");
+        console.log(data);
+      });
+
+      EventBus.$on('DELETE_ARTWORK', function(data){
+        console.log("Delete entity artwork:");
+        console.log(data);
+      });
+
+      EventBus.$on('CREATE_EVENT', function(data){
+        console.log("Adding new entity event:");
+        console.log(data);
+      });
+
+      EventBus.$on('UPDATE_EVENT', function(data){
+        console.log("Updating entity event:");
+        console.log(data);
+      });
+
+      EventBus.$on('DELETE_EVENT', function(data){
+        console.log("Delete entity event:");
+        console.log(data);
+      });
+
+      EventBus.$on('UPDATE_SETTINGS', function(data){
+        console.log("Updating user settings:");
+        console.log(data);
+      });
 
     },
     components: {

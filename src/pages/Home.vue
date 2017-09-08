@@ -57,7 +57,7 @@
   import EventAnalytics from '../components/EventAnalytics.vue';
   import ConfirmDelete from '../components/ConfirmDelete.vue';
 
-  import EventBus from './helpers/EventBus.js';
+  import EventBus from '../helpers/EventBus.js';
 
   export default {
     data () {

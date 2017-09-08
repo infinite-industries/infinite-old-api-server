@@ -7,7 +7,7 @@
         <vue-form-generator :schema="schema" :model="model"></vue-form-generator>
 
       <div class="text-xs-right form-submit-button-container">
-        <v-btn primary dark class="deep-purple darken-3">ADD</v-btn>
+        <v-btn primary dark class="deep-purple darken-3" @click.native.stop="AddArtwork()">SAVE</v-btn>
       </div>
 
       </v-card-text>
@@ -18,16 +18,21 @@
 
 <script>
 
-import EventBus from './helpers/EventBus.js';
+import EventBus from '../helpers/EventBus.js';
 
   export default {
+    methods:{
+      AddArtwork: function(){
+        EventBus.$emit('CREATE_ARTWORK', this.model);
+      }
+    },
     data: function(){
       return {
 
         model: {
           title: '',
           artist: [],
-          artwork: '',
+          image: '',
           notes: ''
         },
 
@@ -50,7 +55,7 @@ import EventBus from './helpers/EventBus.js';
             {
                 type: "image",
                 label: "Artwork Image",
-                model: "artwork",
+                model: "image",
                 preview: false,
                 hideInput: true,
                 required: true

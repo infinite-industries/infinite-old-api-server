@@ -20,7 +20,7 @@
         <vue-form-generator :schema="schema" :model="model"></vue-form-generator>
 
         <div class="text-xs-right form-submit-button-container">
-          <v-btn primary dark class="deep-purple darken-3">ADD</v-btn>
+          <v-btn primary dark class="deep-purple darken-3" @click.native.stop="AddEvent()">ADD EVENT</v-btn>
         </div>
 
       </v-card-text>
@@ -31,10 +31,14 @@
 </template>
 
 <script>
-  import EventBus from './helpers/EventBus.js';
-  
-  export default {
+  import EventBus from '../helpers/EventBus.js';
 
+  export default {
+    methods:{
+      AddEvent: function(){
+        EventBus.$emit('CREATE_EVENT', this.model);
+      }
+    },
     data: function(){
       return {
         model: {
