@@ -13,7 +13,7 @@
       <v-container fluid>
 
         <!-- Show Alerts when needed -->
-        <alert :show="alert_params.visible" :type="alert_params.type" :txt="alert_params.txt"></alert>
+        <alert></alert>
 
         <router-view></router-view>
       </v-container>
@@ -32,30 +32,33 @@
   export default {
     data () {
       return {
-        alert_params:{
-          visible: false,
-          type:"info",
-          txt: " "
-        }
+
       }
     },
     methods:{
-      //Alert states are: success, error, info, warning
+      // Alert states are: success, error, info, warning
       ShowAlert: function(type, txt){
+        EventBus.$emit('ALERT', { type: type, txt: txt });
 
-        this.alert_params.visible = true;
-        this.alert_params.type = type;
-        this.alert_params.txt = txt;
+        const self = this;
+        if(type === "success"){
+        // force the user to manually dismiss all messages other than SUCCESS
+          setTimeout(function(){
+            self.ShowAlert('hide','');
+          }, 3000);
+        }
+
       }
     },
     mounted: function(){
       //--------- All Message Bus events flow here -----------
       const self = this;
+      self.ShowAlert('error','Added the artwork now!');
 
       EventBus.$on('CREATE_ARTWORK', function(data){
         console.log("Creating new entity artwork:");
         console.log(data);
-        self.ShowAlert('success','Added the artwork!');
+        self.ShowAlert('success','Added another artwork now!');
       });
 
       EventBus.$on('UPDATE_ARTWORK', function(data){
@@ -71,6 +74,7 @@
       EventBus.$on('CREATE_EVENT', function(data){
         console.log("Adding new entity event:");
         console.log(data);
+        self.ShowAlert('success','Added your event!');
       });
 
       EventBus.$on('UPDATE_EVENT', function(data){

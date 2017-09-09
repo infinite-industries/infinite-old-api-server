@@ -6,7 +6,7 @@
 
 ## TODO
 
-+ implement alert messages
++ alerts
 
 
 # Dependencies
