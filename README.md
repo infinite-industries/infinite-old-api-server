@@ -4,6 +4,11 @@
 
 2. *Event Announcement* Client makes an API call for art event by {country, state, city, neighborhood, date-range} if specific scope yelds results an array of one to n members is returned.  
 
+## TODO
+
++ implement alert messages
+
+
 # Dependencies
 + MongoDB
 

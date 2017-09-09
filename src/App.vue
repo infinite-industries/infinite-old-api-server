@@ -11,6 +11,10 @@
 
     <main>
       <v-container fluid>
+
+        <!-- Show Alerts when needed -->
+        <alert :show="alert_params.visible" :type="alert_params.type" :txt="alert_params.txt"></alert>
+
         <router-view></router-view>
       </v-container>
     </main>
@@ -19,18 +23,39 @@
 </template>
 
 <script>
-  import SideMenuDesktop from './components/SideMenuDesktop.vue'
+  import SideMenuDesktop from './components/SideMenuDesktop.vue';
+  import Alert from './components/Alert.vue';
+
   import EventBus from './helpers/EventBus.js';
 
-  export default {
-    data:{
 
+  export default {
+    data () {
+      return {
+        alert_params:{
+          visible: false,
+          type:"info",
+          txt: " "
+        }
+      }
+    },
+    methods:{
+      //Alert states are: success, error, info, warning
+      ShowAlert: function(type, txt){
+
+        this.alert_params.visible = true;
+        this.alert_params.type = type;
+        this.alert_params.txt = txt;
+      }
     },
     mounted: function(){
       //--------- All Message Bus events flow here -----------
+      const self = this;
+
       EventBus.$on('CREATE_ARTWORK', function(data){
         console.log("Creating new entity artwork:");
         console.log(data);
+        self.ShowAlert('success','Added the artwork!');
       });
 
       EventBus.$on('UPDATE_ARTWORK', function(data){
@@ -65,7 +90,8 @@
 
     },
     components: {
-      'side-menu-desktop': SideMenuDesktop
+      'side-menu-desktop': SideMenuDesktop,
+      'alert': Alert
     }
   }
 </script>
