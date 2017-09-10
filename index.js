@@ -13,8 +13,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var artworks = require('./routes/artworks');
 const artists = require('./routes/artists');
+const events = require('./routes/events');
+const venues = require("./routes/venues");
+const curators = require("./routes/curators");
+
 app.use('/artworks', artworks);
-app.use('/artists', artists);
+app.use("/artists", artists);
+app.use("/events", events);
+app.use("/venues", venues);
+app.use("/curators", curators);
 
 mongoose.connect('mongodb://localhost/infinite-api');
 

@@ -32,7 +32,7 @@ const eventSchema = new Schema({
   website_link: String,
   facebook_event_link: String,
 
-  notes: String
+  notes: String,
 
   notes: String
 

@@ -1,22 +1,10 @@
 // artwork related API endpoints
 const express = require("express");
 const async = require('async');
-const router = express.Router();
 const ArtworkController = require("../controllers/artworks");
 const RecentlySeenArtworkController = require("../controllers/recentlySeenArtworks");
-const { constants } = require('./routeHelpers');
-
-router.get("/", function(req, res, next) {
-    console.log("handling request for all artworks");
-    ArtworkController.all(function(err, data) {
-        if (err) {
-            console.warn("error handling request for all artworks: " + err);
-            res.status(500).json({ status: constants.db_error });
-        } else {
-            res.status(200).json({ status: constants.success_status, artworks: data });
-        }
-    });
-});
+const { constants, getDefaultRouter } = require('./routeHelpers');
+const router = getDefaultRouter("artworks", "artwork", ArtworkController);
 
 /* get random artwork id, that has not already been shown */
 router.get("/random", function(req, res) {
@@ -76,22 +64,5 @@ router.get("/random", function(req, res) {
         });
     }
 });
-
-router.get("/:artworkID",
-    function(req, res, next) {
-        console.log("handling request for artwork by id: " + req.params.artworkID);
-        ArtworkController.findById(req.params.artworkID, function(err, data){
-            if(err){
-                console.warn("error handling request for artwork: " + err);
-                res.status(500).json({ status: constants.db_error });
-            }
-            else if (data===null){
-                res.status(404).json({ status: "no_such_id"});
-            }
-            else{
-                res.status(200).json({ status: constants.success_status, artwork: data });
-            }
-        })
-    });
 
 module.exports = router;
