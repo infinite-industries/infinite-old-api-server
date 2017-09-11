@@ -47,9 +47,10 @@ const router = new VueRouter({
         props: true
       },
       {
-        path: '/edit-artwork',
+        path: '/edit-artwork/:id',
         name: 'edit_artwork',
-        component: EditArtwork
+        component: EditArtwork,
+        props: true
       },
       {
         path: '/add-artwork',
@@ -77,16 +78,17 @@ const router = new VueRouter({
         component: ShowAllPastEvents
       },
       {
-        path: '/show-single-artwork',
+        path: '/show-single-artwork/:id',
         name: 'show_single_artwork',
-        component: ShowSingleArtwork
+        component: ShowSingleArtwork,
+        props: true
       },
       {
-        path: '/show-single-event',
+        path: '/show-single-event/:id',
         name: 'show_single_event',
-        component: ShowSingleEvent
+        component: ShowSingleEvent,
+        props: true
       }
-
     ]
   })
 

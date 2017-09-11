@@ -12,8 +12,10 @@
     <main>
       <v-container fluid>
 
-        <!-- Show Alerts when needed -->
         <alert></alert>
+
+        <!-- Show Confirmation Dialog if deleting entity -->
+        <confirm-delete></confirm-delete>
 
         <router-view></router-view>
       </v-container>
@@ -25,9 +27,9 @@
 <script>
   import SideMenuDesktop from './components/SideMenuDesktop.vue';
   import Alert from './components/Alert.vue';
+  import ConfirmDelete from './components/ConfirmDelete.vue';
 
   import EventBus from './helpers/EventBus.js';
-
 
   export default {
     data () {
@@ -36,9 +38,11 @@
       }
     },
     methods:{
-      // Alert states are: success, error, info, warning
+
       ShowAlert: function(type, txt){
         EventBus.$emit('ALERT', { type: type, txt: txt });
+        // All of the guts of the alert live in components/Alert.vue
+        // Alert states are: success, error, info, warning
 
         const self = this;
         if(type === "success"){
@@ -47,13 +51,22 @@
             self.ShowAlert('hide','');
           }, 3000);
         }
+      },
 
+      ShowConfirmDeleteDialog: function(data){
+        EventBus.$emit('CONFIRMATION_DIALOG', data);
+        // All of the guts of the confirmation dialog live in components/ConfirmDelete.vue
+      },
+
+      DirectRoute: function(set_path){
+        this.$router.push({ path: set_path})
       }
     },
     mounted: function(){
       //--------- All Message Bus events flow here -----------
       const self = this;
-      self.ShowAlert('error','Added the artwork now!');
+
+      //self.ShowConfirmDeleteDialog({type:'test', id: 'some_id'});
 
       EventBus.$on('CREATE_ARTWORK', function(data){
         console.log("Creating new entity artwork:");
@@ -67,8 +80,15 @@
       });
 
       EventBus.$on('DELETE_ARTWORK', function(data){
+        console.log("Double-check if artwork needs deletin':");
+        console.log(data);
+        self.ShowConfirmDeleteDialog(data);
+      });
+
+      EventBus.$on('CONFIRMED_DELETE_ARTWORK', function(data){
         console.log("Delete entity artwork:");
         console.log(data);
+        self.ShowAlert('success','Artwork listing deleted.');
       });
 
       EventBus.$on('CREATE_EVENT', function(data){
@@ -83,6 +103,11 @@
       });
 
       EventBus.$on('DELETE_EVENT', function(data){
+        console.log("Double-check if artwork needs deletin':");
+        console.log(data);
+      });
+
+      EventBus.$on('CONFIRMED_DELETE_EVENT', function(data){
         console.log("Delete entity event:");
         console.log(data);
       });
@@ -95,7 +120,8 @@
     },
     components: {
       'side-menu-desktop': SideMenuDesktop,
-      'alert': Alert
+      'alert': Alert,
+      'confirm-delete': ConfirmDelete
     }
   }
 </script>

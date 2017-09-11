@@ -1,6 +1,29 @@
+<style>
+  .listing-card{
+    margin-top: 10px;
+    max-width: 900px;
+  }
+
+  .artwork-descriptor{
+    max-width:400px;
+    display: inline;
+    position:absolute;
+    left: 110px;
+    top: 5px;
+  }
+
+  .listing-card-controlls{
+    max-width:300px;
+    display: inline;
+    position:absolute;
+    right: 10px;
+    top: 5px;
+  }
+</style>
+
 <template>
   <div>
-      <v-card v-for="event in show_events" style="margin-top: 10px; max-width: 900px">
+      <v-card v-for="event in show_events" class="listing-card">
         <img src="https://unsplash.it/100" height="100px" width ="100px">
         <div style="max-width:400px; display: inline; position:absolute; left: 110px;top: 5px;">
           {{ event.title }}

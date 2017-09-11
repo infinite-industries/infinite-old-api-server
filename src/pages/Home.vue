@@ -2,9 +2,6 @@
 
   <v-container fluid>
 
-    <confirm-delete style="z-index:100" :type="entity_type" v-if="action_confirm_visible"></confirm-delete>
-
-
     <v-card>
       <v-card-title class="dashboard-title">Your Artworks</v-card-title>
       <v-card-text>
@@ -55,15 +52,13 @@
   import EventListing from '../components/EventListing.vue';
   import ArtworkAnalytics from '../components/ArtworkAnalytics.vue';
   import EventAnalytics from '../components/EventAnalytics.vue';
-  import ConfirmDelete from '../components/ConfirmDelete.vue';
 
   import EventBus from '../helpers/EventBus.js';
 
   export default {
     data () {
       return {
-        action_confirm_visible: true,
-        entity_type: 'event'
+
       }
     },
     methods: {
@@ -71,12 +66,14 @@
         this.$router.push({ path: set_path})
       }
     },
+    mounted: function(){
+      console.log("load dashboard");
+    },
     components: {
     'artwork-listing': ArtworkListing,
     'event-listing': EventListing,
     'artwork-analytics': ArtworkAnalytics,
-    'event-analytics': EventAnalytics,
-    'confirm-delete': ConfirmDelete
+    'event-analytics': EventAnalytics
     }
   }
 </script>
