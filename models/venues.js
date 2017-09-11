@@ -9,7 +9,7 @@ const gallerySchema = new Schema({
   location_country: String,     // intentionally duplicate of event entity field
   location_city: String,        // intentionally duplicate of event entity field
   location_state: String,       // intentionally duplicate of event entity field
-  location_neighborhood: String // intentionally duplicate of event entity field
+  location_neighborhood: String, // intentionally duplicate of event entity field
   location_street: String,      // intentionally duplicate of event entity field
   website: String,
   facebook: String,
@@ -17,8 +17,8 @@ const gallerySchema = new Schema({
   instagram: String,
   blog: String,
   notes: String
-}, {collection: "galleries"});
+}, {collection: "venues"});
 
-const Gallery = mongoose.model("Gallery", gallerySchema);
+const Gallery = mongoose.model("Venue", gallerySchema);
 
 module.exports = Gallery;
