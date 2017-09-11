@@ -4,6 +4,7 @@ const Joi = frisby.Joi;
 const route_name = 'events';
 const singular_route_name = 'event';
 const id = 'dd7e4996-70b2-46ef-93b1-a92b713129eb';
+const collection_length = 6;
 
 it('should return json descriptor for ' + route_name + ' entity by id', function(done){
     frisby.get('http://localhost:3003/' + route_name + '/' + id)
@@ -23,7 +24,7 @@ it('should return all ' + route_name + ' for /' + route_name + ' path', function
         .expect('status', 200)
         .then(function(response){
             expect(response._body.status).toBe('success');
-            expect(response._body[route_name].length).toBe(6);
+            expect(response._body[route_name].length).toBe(collection_length);
         })
 
         .done(done);

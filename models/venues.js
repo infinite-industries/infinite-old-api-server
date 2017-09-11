@@ -17,8 +17,8 @@ const gallerySchema = new Schema({
   instagram: String,
   blog: String,
   notes: String
-}, {collection: "galleries"});
+}, {collection: "venues"});
 
-const Gallery = mongoose.model("Gallery", gallerySchema);
+const Gallery = mongoose.model("Venue", gallerySchema);
 
 module.exports = Gallery;
