@@ -37,6 +37,7 @@ const eventSchema = new Schema({
   time_end: Date,
   website: String,
   image: String,
+  social_image: String,
   venues: Array,
   organizers: Array,
   map_link: String,
@@ -44,6 +45,8 @@ const eventSchema = new Schema({
   description: String,
   links: Array,
   fb_event_link: String,
+  eventbright_link: String,
+  bitly_link: String,
   tags: Array
 }, {collection: "events"});
 
