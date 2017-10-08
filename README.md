@@ -36,3 +36,6 @@ curl -H "Content-Type: application/json" -X POST -d '{"artwork_id":"cc432195-2a2
 ### Get Random Artwork ID
 ### Register webhook
 ### Create a new event
+
+### Example event create post
+`curl -X POST -H "Content-Type: application/json" -d '{ "event": {"title":"test2", "slug":"test2" } }' http://localhost:3003/events`

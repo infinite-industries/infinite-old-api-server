@@ -17,5 +17,8 @@ module.exports = {
 
 	all: function(callback) {
 		EventsModel.find({}, callback);
+	},
+	create: function(data, callback) {
+		EventsModel.create(data, callback);
 	}
-}
+ };

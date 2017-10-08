@@ -4,11 +4,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
-  title: String,
   id: String,
   type: String,
-  description: String,
-  tags: Array,
   status: String, //can cancel and/or postpone events here
   presenter_curator: String,
   presenter_curator_id: String,
@@ -28,14 +25,29 @@ const eventSchema = new Schema({
   location_state: String,       // intentionally duplicate of venue entity field
   location_neighborhood: String, // intentionally duplicate of venue entity field
   location_street: String,      // intentionally duplicate of venue entity field
-
   website_link: String,
   facebook_event_link: String,
-
   notes: String,
 
-  notes: String
-
+  // === in json file ===
+  title: String,
+  slug: String,
+  when: Date,
+  time_start: Date,
+  time_end: Date,
+  website: String,
+  image: String,
+  social_image: String,
+  venues: Array,
+  organizers: Array,
+  map_link: String,
+  brief_description: String,
+  description: String,
+  links: Array,
+  fb_event_link: String,
+  eventbright_link: String,
+  bitly_link: String,
+  tags: Array
 }, {collection: "events"});
 
 const Event = mongoose.model("Event", eventSchema);
