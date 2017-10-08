@@ -14,9 +14,6 @@
 
         <alert></alert>
 
-        <!-- Show Confirmation Dialog if deleting entity -->
-        <confirm-delete></confirm-delete>
-
         <router-view></router-view>
       </v-container>
     </main>
@@ -27,7 +24,6 @@
 <script>
   import SideMenuDesktop from './components/SideMenuDesktop.vue';
   import Alert from './components/Alert.vue';
-  import ConfirmDelete from './components/ConfirmDelete.vue';
 
   import EventBus from './helpers/EventBus.js';
 
@@ -80,12 +76,6 @@
       });
 
       EventBus.$on('DELETE_ARTWORK', function(data){
-        console.log("Double-check if artwork needs deletin':");
-        console.log(data);
-        self.ShowConfirmDeleteDialog(data);
-      });
-
-      EventBus.$on('CONFIRMED_DELETE_ARTWORK', function(data){
         console.log("Delete entity artwork:");
         console.log(data);
         self.ShowAlert('success','Artwork listing deleted.');
@@ -103,13 +93,9 @@
       });
 
       EventBus.$on('DELETE_EVENT', function(data){
-        console.log("Double-check if artwork needs deletin':");
-        console.log(data);
-      });
-
-      EventBus.$on('CONFIRMED_DELETE_EVENT', function(data){
         console.log("Delete entity event:");
         console.log(data);
+        self.ShowAlert('success','Event listing deleted.');
       });
 
       EventBus.$on('UPDATE_SETTINGS', function(data){
@@ -120,8 +106,7 @@
     },
     components: {
       'side-menu-desktop': SideMenuDesktop,
-      'alert': Alert,
-      'confirm-delete': ConfirmDelete
+      'alert': Alert
     }
   }
 </script>

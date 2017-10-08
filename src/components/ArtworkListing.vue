@@ -32,6 +32,9 @@
 
 <template>
   <div>
+    <!-- Show Confirmation Dialog if deleting entity -->
+    <confirm-delete></confirm-delete>
+
       <v-card v-for="(artwork, index) in show_artworks" class="listing-card">
         <img src="https://unsplash.it/100" height="100px" width ="100px"  @click="RouteWithProps('/show-single-artwork', artwork.id)">
 
@@ -56,6 +59,8 @@
 <script>
   import EventBus from '../helpers/EventBus.js';
 
+  import ConfirmDelete from '../components/ConfirmDelete.vue';
+
   export default {
     name:'ArtworkListing',
     props: ['max_entries'],
@@ -69,7 +74,8 @@
       },
       Delete: function(id, index){
         this.show_artworks.splice(index, 1);
-        EventBus.$emit('DELETE_ARTWORK', { type:'artwork', id: id });
+        //EventBus.$emit('DELETE_ARTWORK', { type:'artwork', id: id});
+        EventBus.$emit('CONFIRMATION_DIALOG', { type:'artwork', id: id});
       }
     },
     mounted: function() {
@@ -122,6 +128,9 @@
           }
         ]
       }
+    },
+    components: {
+      'confirm-delete': ConfirmDelete
     }
   }
 </script>
