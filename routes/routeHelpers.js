@@ -1,4 +1,5 @@
 const express = require("express");
+const uuidv1 = require('uuid/v1');
 const constants = {
     db_error: 'db_fail',
     success_status: 'success'
@@ -9,10 +10,19 @@ module.exports = {
 	getDefaultRouter
 };
 
-function getDefaultRouter(router_name, router_name_singular, controller) {
+function getDefaultRouter(router_name, router_name_singular, controller, auth) {
     const debug = require('debug')('router:' + router_name);
     const identifier = router_name_singular + 'ID';
+    const authMiddlware = !!auth ? [auth] : [];
     router = express.Router();
+
+	router.use('/', function(req, res, next) {
+		res.header('Access-Control-Allow-Origin', '*');
+		res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+		res.header('Access-Control-Allow-Headers',
+			'Content-Type, Authorization, Content-Length, X-Requested-With');
+		next();
+	});
 
     debug('establishing router "/" for router "%s"', router_name);
     router.get("/", function(req, res) {
@@ -33,7 +43,7 @@ function getDefaultRouter(router_name, router_name_singular, controller) {
     debug('establish router /:%s for router %s', identifier, router_name);
     router.get("/:" + identifier,
         function(req, res) {
-            console.log("handling request for %s by id: %s", router_name, req.params[identifier]);
+            console.log("handling  get request for %s by id: %s", router_name, req.params[identifier]);
             controller.findById(req.params[identifier], function(err, data) {
                 if(err) {
                     console.warn("error handling request for artist: " + err);
@@ -51,6 +61,25 @@ function getDefaultRouter(router_name, router_name_singular, controller) {
             })
         }
     );
+
+	router.post(
+	    '/',
+        authMiddlware,
+        function(req, res) {
+            console.log("handling post request for '%s'", router_name);
+            const postJSON= req.body[router_name_singular];
+            if (!postJSON)
+                return res.status(422).json({ status: router_name_singular + ' parameter is required' });
+
+            postJSON.id = uuidv1();
+
+            controller.create(postJSON, function(err) {
+                if (err)
+                    return res.status(500).json({  status: err });
+
+                res.status(200).json({ status: 'ok', id: postJSON.id });
+            });
+	});
 
     return router;
 }
