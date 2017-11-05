@@ -7,8 +7,6 @@ const keySchema = new Schema({
 	id: String,
 	organization: String,
 	user_name: String
-}, {collection: "dev_keys"});
+}, { collection: "dev_keys" });
 
-const Key = mongoose.model("DevKey", keySchema);
-
-module.exports = Key;
+module.exports = mongoose.model("DevKey", keySchema);;

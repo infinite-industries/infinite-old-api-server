@@ -5,10 +5,14 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var dotenv = require('dotenv');
-
+const passport = require('passport');
+const getAPIKeyStrategy = require('./expressMiddleWare/DevTokenAuthStrategy');
 
 var app = express();
 app.use(bodyParser.json());
+app.use(passport.initialize());
+passport.use(getAPIKeyStrategy());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 var artworks = require('./routes/artworks');

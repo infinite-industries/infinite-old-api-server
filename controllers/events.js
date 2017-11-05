@@ -8,17 +8,5 @@
 * */
 
 const EventsModel = require("../models/events.js");
-
-module.exports = {
-
-	findById: function(events_id, callback) {
-		EventsModel.findOne({ id: events_id }, callback)
-	},
-
-	all: function(callback) {
-		EventsModel.find({}, callback);
-	},
-	create: function(data, callback) {
-		EventsModel.create(data, callback);
-	}
- };
+const getDefaultController = require('./generators/controllerGenerator');
+module.exports = getDefaultController(EventsModel);

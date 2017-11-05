@@ -1,9 +1,4 @@
 const DevKeyModel = require("../models/devKeys");
-
-module.exports = {
-
-	findById: function(id, callback){
-		//TODO check on FindOne for this case
-		DevKeyModel.findOne({ id }, callback)
-	}
-}
+const debug = require('debug')('controllers:devKeys');
+const getDefaultController = require('./generators/controllerGenerator');
+module.exports = getDefaultController(DevKeyModel);

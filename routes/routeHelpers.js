@@ -1,5 +1,6 @@
 const express = require("express");
 const uuidv1 = require('uuid/v1');
+const passport = require('passport');
 const constants = {
     db_error: 'db_fail',
     success_status: 'success'
@@ -10,10 +11,9 @@ module.exports = {
 	getDefaultRouter
 };
 
-function getDefaultRouter(router_name, router_name_singular, controller, auth) {
+function getDefaultRouter(router_name, router_name_singular, controller) {
     const debug = require('debug')('router:' + router_name);
     const identifier = router_name_singular + 'ID';
-    const authMiddlware = !!auth ? [auth] : [];
     router = express.Router();
 
 	router.use('/', function(req, res, next) {
@@ -64,7 +64,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, auth) {
 
 	router.post(
 	    '/',
-        authMiddlware,
+		passport.authenticate('localapikey', { session: false }),
         function(req, res) {
             console.log("handling post request for '%s'", router_name);
             const postJSON= req.body[router_name_singular];

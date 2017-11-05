@@ -1,15 +1,9 @@
 const RecentlySeenArtworkModel = require("../models/recentlySeenArtwork");
-
-module.exports = {
-
-    findById: function(artworkID, callback) {
-        //TODO check on FindOne for this case
-        RecentlySeenArtworkModel.findOne({ 'id' : artworkID }, callback);
-    },
-
-    // updates or inserts a new recentlySeenArtwork
-    updateOne: function(artworkID, callback) {
-        RecentlySeenArtworkModel.update({ id: artworkID }, { id: artworkID, updated: Date.now() }, { upsert: true },
+const getDefaultController = require('./generators/controllerGenerator');
+const _ = require('lodash');
+module.exports = _.extend(getDefaultController(RecentlySeenArtworkModel), {
+    updateOne: function(id, callback) {
+        RecentlySeenArtworkModel.update({ id }, { id: id, updated: Date.now() }, { upsert: true },
             callback);
     }
-};
+});
