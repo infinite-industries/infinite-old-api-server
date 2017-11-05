@@ -29,8 +29,8 @@ function getDefaultRouter(router_name, router_name_singular, controller) {
         console.log("handling request for all " + router_name);
 
         const sortField = req.query.sort_field || false;
+        const filter_field = req.query.filter_field ||false;
 
-        console.log('!!! sort field: ' + sortField);
         controller.all(function(err, data) {
             if (err) {
                 console.warn("error handling request for all %s: %s: ", router_name, err);
@@ -44,16 +44,11 @@ function getDefaultRouter(router_name, router_name_singular, controller) {
                     });
                 }
 
-				console.log('!!! data: ' +
-                    JSON.stringify(data.map(function(obj) {
-                        return { title: obj.title, start_time: obj.time_start };
-                    }), null, 4));
-
                 const resp = { status: constants.success_status };
                 resp[router_name] = data;
                 res.status(200).json(resp);
             }
-        });
+        }, { filter_field });
     });
 
     debug('establish router /:%s for router %s', identifier, router_name);

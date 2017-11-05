@@ -7,9 +7,15 @@ module.exports = function getDefaultController(Model) {
 			Model.findOne({ id: id }, callback)
 		},
 
-		all: function(callback) {
+		all: function(callback, opts) {
 			debug('all');
-			Model.find({}, callback);
+			opts = opts || {};
+			const query = {};
+			if (opts.filter_field) {
+				query[opts.filter_field] = true;
+			}
+
+			Model.find(query, callback);
 		},
 		create: function(data, callback) {
 			debug('create: ' + JSON.stringify(data, null, 4));

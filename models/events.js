@@ -47,7 +47,8 @@ const eventSchema = new Schema({
   fb_event_link: String,
   eventbright_link: String,
   bitly_link: String,
-  tags: Array
+  tags: Array,
+  verified: Boolean
 }, {collection: "events"});
 
 const Event = mongoose.model("Event", eventSchema);
