@@ -27,12 +27,23 @@ function getDefaultRouter(router_name, router_name_singular, controller) {
     debug('establishing router "/" for router "%s"', router_name);
     router.get("/", function(req, res) {
         console.log("handling request for all " + router_name);
+
+        const sortField = req.query.sort_field || false;
+
+        console.log('!!! sort field: ' + sortField);
         controller.all(function(err, data) {
             if (err) {
                 console.warn("error handling request for all %s: %s: ", router_name, err);
                 res.status(500).json({ status: constants.db_error });
             } else {
                 debug('found all requested ' + router_name);
+
+                if (sortField) {
+                    data = data.sort(function(a, b) {
+                        return (a[sortField] || 0) < (b[sortField] || 0);
+                    });
+                }
+
                 const resp = { status: constants.success_status };
                 resp[router_name] = data;
                 res.status(200).json(resp);
