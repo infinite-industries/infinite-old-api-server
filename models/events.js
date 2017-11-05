@@ -32,7 +32,7 @@ const eventSchema = new Schema({
   // === in json file ===
   title: String,
   slug: String,
-  when: Date,
+  when: String,
   time_start: Date,
   time_end: Date,
   website: String,
