@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { MongoClient } = require('mongodb');
 const async = require('async');
 const mongoURL = 'mongodb://localhost/infinite-api';
