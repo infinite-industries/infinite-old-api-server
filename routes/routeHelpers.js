@@ -40,7 +40,7 @@ function getDefaultRouter(router_name, router_name_singular, controller) {
 
                 if (sortField) {
                     data = data.sort(function(a, b) {
-                        return (a[sortField] || 0) < (b[sortField] || 0);
+                        return (a[sortField] || 0) > (b[sortField] || 0);
                     });
                 }
 
