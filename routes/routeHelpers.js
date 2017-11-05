@@ -38,12 +38,16 @@ function getDefaultRouter(router_name, router_name_singular, controller) {
             } else {
                 debug('found all requested ' + router_name);
 
-                console.log('!!! data: ' + JSON.stringify(data, null, 4));
                 if (sortField) {
                     data = data.sort(function(a, b) {
                         return (a[sortField] || 0) > (b[sortField] || 0);
                     });
                 }
+
+				console.log('!!! data: ' +
+                    JSON.stringify(data.map(function(obj) {
+                        return { title: obj.title, start_time: obj.time_start };
+                    }), null, 4));
 
                 const resp = { status: constants.success_status };
                 resp[router_name] = data;
