@@ -38,4 +38,7 @@ curl -H "Content-Type: application/json" -X POST -d '{"artwork_id":"cc432195-2a2
 ### Create a new event
 
 ### Example event create post
-`curl -X POST -H "Content-Type: application/json" -d '{ "event": {"title":"test2", "slug":"test2" } }' http://localhost:3003/events`
+`curl -X POST -H "Content-Type: application/json" -d '{ "event": {"title":"foo", "slug":"xyz" }, "apikey":"48e80bde-aec4-44bb-89e9-01b4a90092cd"}' http://localhost:3003/events
+
+### Example Verify Event ###
+`curl -X POST http://localhost:3003/events/verify/522479a0-c1ab-11e7-910d-794911741001?apikey=2019529e-7f8c-44f9-8996-f52a88b2a314`

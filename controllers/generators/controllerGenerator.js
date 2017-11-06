@@ -20,6 +20,9 @@ module.exports = function getDefaultController(Model) {
 		create: function(data, callback) {
 			debug('create: ' + JSON.stringify(data, null, 4));
 			Model.create(data, callback);
+		},
+		update: function(id, data, callback) {
+			Model.updateOne({ id }, data, callback);
 		}
 	};
 };
