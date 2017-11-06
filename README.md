@@ -42,3 +42,6 @@ curl -H "Content-Type: application/json" -X POST -d '{"artwork_id":"cc432195-2a2
 
 ### Example Verify Event ###
 `curl -X POST http://localhost:3003/events/verify/522479a0-c1ab-11e7-910d-794911741001?apikey=2019529e-7f8c-44f9-8996-f52a88b2a314`
+
+### Import Latest JSON FILE ###
+npm run importEvents
