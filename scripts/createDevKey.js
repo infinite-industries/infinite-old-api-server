@@ -12,6 +12,7 @@ const mongoURL = 'mongodb://localhost/infinite-api';
 
 const user_name = nconf.get('user');
 const organization = nconf.get('org');
+const id = nconf.get('id') || uuidv4();
 
 debug(util.format('running script with user_name: "%s", organization: "%s"', user_name, organization));
 
@@ -20,7 +21,7 @@ if (!user_name || !organization)
 
 debug('connecting to: ' + mongoURL);
 mongoose.connect('mongodb://localhost/infinite-api');
-const id = uuidv4();
+
 debug('create key with id: ' + id);
 DevKeyController.create({ id, user_name, organization }, function(err) {
 	debug('key created with id: ' + id);
