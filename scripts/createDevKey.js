@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+/*
+	requires:
+		--user <username>
+		--org <organization>
+ */
 const uuidv4 = require('uuid/v4');
 const DevKeyController = require('../controllers/devKeys');
 const mongoose = require('mongoose');

@@ -2,7 +2,7 @@
 const EventController = require("../controllers/events");
 const { getDefaultRouter } = require("./routeHelpers");
 const passport = require('passport');
-const router = getDefaultRouter("events", "event", EventController);
+const router = getDefaultRouter("events", "event", EventController, { verified: false });
 
 router.post(
 	'/verify/:id',

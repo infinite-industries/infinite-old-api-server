@@ -11,7 +11,7 @@ module.exports = {
 	getDefaultRouter
 };
 
-function getDefaultRouter(router_name, router_name_singular, controller) {
+function getDefaultRouter(router_name, router_name_singular, controller, forcedValues) {
     const debug = require('debug')('router:' + router_name);
     const identifier = router_name_singular + 'ID';
     router = express.Router();
@@ -83,6 +83,14 @@ function getDefaultRouter(router_name, router_name_singular, controller) {
                 return res.status(422).json({ status: router_name_singular + ' parameter is required' });
 
             postJSON.id = uuidv1();
+
+            if (forcedValues) {
+                const keys = Object.keys(forcedValues);
+                for (let i = 0; i < keys.length; i++) {
+                    const key = keys[i];
+                    postJSON[key] = forcedValues[key];
+                }
+            }
 
             controller.create(postJSON, function(err) {
                 if (err)
