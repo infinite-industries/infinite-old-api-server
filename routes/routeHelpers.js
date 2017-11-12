@@ -31,6 +31,19 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
         const sortField = req.query.sort_field || false;
         const filter_field = req.query.filter_field ||false;
 
+        let queryStr = req.query.query;
+        let query = {};
+
+        if (queryStr) {
+            try {
+                query = JSON.parse(queryStr);
+            } catch(ex) {
+                console.warn('error parsing query obj: ' + ex);
+                console.warn('invalid object string: ' + queryStr);
+                return res.status(500).json({ status: 'failure', error_message: 'error: ' + ex });
+            }
+        }
+
         controller.all(function(err, data) {
             if (err) {
                 console.warn("error handling request for all %s: %s: ", router_name, err);
@@ -48,7 +61,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
                 resp[router_name] = data;
                 res.status(200).json(resp);
             }
-        }, { filter_field });
+        }, query, filter_field);
     });
 
     debug('establish router /:%s for router %s', identifier, router_name);

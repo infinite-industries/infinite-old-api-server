@@ -7,11 +7,11 @@ module.exports = function getDefaultController(Model) {
 			Model.findOne({ id: id }, callback)
 		},
 
-		all: function(callback, opts) {
+		all: function(callback, query, filter_field) {
 			debug('all');
-			opts = opts || {};
-			const query = {};
-			if (opts.filter_field) {
+			query = query || {};
+
+			if (filter_field) {
 				query[opts.filter_field] = true;
 			}
 
