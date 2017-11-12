@@ -93,8 +93,10 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
             }
 
             controller.create(postJSON, function(err) {
-                if (err)
-                    return res.status(500).json({  status: err });
+                if (err) {
+                    console.warn('error creating "%s"', router_name_singular + ': ' + err);
+                    return res.status(500).json({ status: err });
+                }
 
                 res.status(200).json({ status: 'ok', id: postJSON.id });
             });
