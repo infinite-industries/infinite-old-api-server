@@ -4,6 +4,35 @@ const { getDefaultRouter } = require("./routeHelpers");
 const passport = require('passport');
 const router = getDefaultRouter("events", "event", EventController, { verified: false });
 
+// get current verified events
+router.get('/current/non-verified', function(req, res) {
+    const dt = new Date(Date.now());
+    const query = { $and: [{ time_end: { $gt: dt }}, { verified: { $ne: true }}] };
+    EventController.all(function(err, events) {
+        if (err) {
+            console.warn('error getting current/verified events: ' + err);
+            return res.status(501).json({ status: 'failed: ' + err });
+        }
+
+        res.status(200).json({ status: 'success', events });
+    }, query);
+});
+
+// get current verified events
+router.get('/current/verified', function(req, res) {
+	const dt = new Date(Date.now());
+	const query = { $and: [{ time_end: { $gt: dt }}, { verified: true }] };
+	EventController.all(function(err, events) {
+		if (err) {
+			console.warn('error getting current/verified events: ' + err);
+			return res.status(501).json({ status: 'failed: ' + err });
+		}
+
+		res.status(200).json({ status: 'success', events });
+	}, query);
+});
+
+// allows admins to tag an event as verified
 router.post(
 	'/verify/:id',
 	passport.authenticate('localapikey', { session: false }),

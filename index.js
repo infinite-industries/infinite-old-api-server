@@ -27,6 +27,7 @@ app.use("/events", events);
 app.use("/venues", venues);
 app.use("/curators", curators);
 
+mongoose.set('debug', true);
 mongoose.connect('mongodb://localhost/infinite-api');
 
 

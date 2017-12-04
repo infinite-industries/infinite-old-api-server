@@ -46,6 +46,8 @@ async.waterfall([
 
 		async.each(eventsJSON, function(event, _nextEvent) {
 			console.log('processing event: ' + event.id);
+			event = _modelLogic(event);
+
 			eventsColl.update({ id:  event.id }, event, { upsert: true }, function(err) {
 				if (err)
 					return _nextEvent(err);
@@ -68,3 +70,14 @@ async.waterfall([
 	else
 		console.log('success');
 })
+
+// much dirty way of doing things, wow
+function _modelLogic(event) {
+	if (event.time_end)
+		event.time_end = new Date(event.time_end);
+
+	if (event.time_start)
+		event.time_start = new Date(event.time_start);
+
+	return event;
+}
