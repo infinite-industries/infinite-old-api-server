@@ -11,10 +11,10 @@ module.exports = {
 	getDefaultRouter
 };
 
-function getDefaultRouter(router_name, router_name_singular, controller, forcedValues) {
+function getDefaultRouter(router_name, router_name_singular, controller, forcedValues, options) {
     const debug = require('debug')('router:' + router_name);
     const identifier = router_name_singular + 'ID';
-    router = express.Router();
+    const router = express.Router();
 
 	router.use('/', function(req, res, next) {
 		res.header('Access-Control-Allow-Origin', '*');
@@ -44,7 +44,9 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
             }
         }
 
-        controller.all(function(err, data) {
+        // allow a custom all method to be passed in
+        const allMethod = options && options.allMethod ? options.allMethod : controller.all;
+        allMethod(function(err, data) {
             if (err) {
                 console.warn("error handling request for all %s: %s: ", router_name, err);
                 res.status(500).json({ status: constants.db_error });
@@ -68,7 +70,9 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
     router.get("/:" + identifier,
         function(req, res) {
             console.log("handling  get request for %s by id: %s", router_name, req.params[identifier]);
-            controller.findById(req.params[identifier], function(err, data) {
+
+			const byIDMethod = options && options.byIDMethod ? options.byIDMethod : controller.findById;
+            byIDMethod(req.params[identifier], function(err, data) {
                 if(err) {
                     console.warn("error handling request for artist: " + err);
                     res.status(500).json({ "status": constants.db_error });
