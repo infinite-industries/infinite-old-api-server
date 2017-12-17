@@ -9,4 +9,4 @@ const keySchema = new Schema({
 	user_name: String
 }, { collection: "dev_keys" });
 
-module.exports = mongoose.model("DevKey", keySchema);;
+module.exports = mongoose.model("DevKey", keySchema);
