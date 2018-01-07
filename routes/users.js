@@ -8,7 +8,10 @@ const constants = {
 const { getDefaultRouter } = require("./helpers/routeHelpers");
 const router = getDefaultRouter("users", "user", UsersController, {}, {
 	allMethod: UsersController.allAndMergeWithEventLists,
-	byIDMethod: UsersController.findByIDAndMergeWithEventLists
+	byIDMethod: UsersController.findByIDAndMergeWithEventLists,
+
+	// secure the read as well as the write routes for users
+	readMiddleware: [passport.authenticate('localapikey', { session: false })]
 });
 
 router.put(

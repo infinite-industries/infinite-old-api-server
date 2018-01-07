@@ -15,6 +15,8 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
     const debug = require('debug')('router:' + router_name);
     const identifier = router_name_singular + 'ID';
     const router = express.Router();
+    options = options || {};
+    const readMiddleware = options.readMiddleware || [];
 
 	router.use('/', function(req, res, next) {
 		res.header('Access-Control-Allow-Origin', '*');
@@ -25,7 +27,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
 	});
 
     debug('establishing router "/" for router "%s"', router_name);
-    router.get("/", function(req, res) {
+    router.get("/", readMiddleware, function(req, res) {
         console.log("handling request for all " + router_name);
 
         const sortField = req.query.sort_field || false;
@@ -68,6 +70,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
 
     debug('establish router /:%s for router %s', identifier, router_name);
     router.get("/:" + identifier,
+		readMiddleware,
         function(req, res) {
             console.log("handling  get request for %s by id: %s", router_name, req.params[identifier]);
 
