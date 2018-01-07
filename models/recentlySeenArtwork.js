@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 const timeToWait = 518400;
 
 const recentlySeenArtworkSchema = new Schema({
-    id: String,
+    id: { type: String, index: true },
     updated: { type: Date, default: Date.now, expires: timeToWait }
 }, {collection: "RecentlySeenArtworks"});
 

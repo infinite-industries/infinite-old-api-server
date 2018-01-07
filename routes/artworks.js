@@ -3,7 +3,7 @@ const express = require("express");
 const async = require('async');
 const ArtworkController = require("../controllers/artworks");
 const RecentlySeenArtworkController = require("../controllers/recentlySeenArtworks");
-const { constants, getDefaultRouter } = require('./routeHelpers');
+const { constants, getDefaultRouter } = require('./helpers/routeHelpers');
 const router = getDefaultRouter("artworks", "artwork", ArtworkController);
 
 /* get random artwork id, that has not already been shown */

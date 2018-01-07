@@ -5,7 +5,7 @@ const constants = {
 	db_error: "db_fail",
 	success_status: "success"
 };
-const { getDefaultRouter } = require("./routeHelpers");
+const { getDefaultRouter } = require("./helpers/routeHelpers");
 const router = getDefaultRouter("eventLists", "eventList", EventListController, { verified: false }, {
 	allMethod: EventListController.allAndMergeWithEvents,
 	byIDMethod: EventListController.findByIDAndMergeWithEvents

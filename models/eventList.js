@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const keySchema = new Schema({
-	id: String,
+	id: { type: String, index: true },
 	name: String,
 	curators: Array,
 	is_public: Boolean,

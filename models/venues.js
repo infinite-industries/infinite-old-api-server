@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const gallerySchema = new Schema({
-  name: String,
-  id: String,
+  name: { type: String, index: true },
+  id: { type: String, index: true },
   location_country: String,     // intentionally duplicate of event entity field
   location_city: String,        // intentionally duplicate of event entity field
   location_state: String,       // intentionally duplicate of event entity field

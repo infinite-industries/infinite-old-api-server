@@ -1,5 +1,5 @@
 const RecentlySeenArtworkModel = require("../models/recentlySeenArtwork");
-const getDefaultController = require('./generators/controllerGenerator');
+const getDefaultController = require('./helpers/controllerGenerator');
 const _ = require('lodash');
 module.exports = _.extend(getDefaultController(RecentlySeenArtworkModel), {
     updateOne: function(id, callback) {

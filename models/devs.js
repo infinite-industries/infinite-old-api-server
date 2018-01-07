@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const devSchema = new Schema({
   name: String,
-  id: String,
+  id: { type: String, index: true },
   portrait_img: String,
   contact_email: String,
   email_is_public: Boolean,

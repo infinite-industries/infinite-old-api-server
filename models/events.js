@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
-  id: String,
+  id: { type: String, index: true },
   type: String,
   status: String, //can cancel and/or postpone events here
   presenter_curator: String,

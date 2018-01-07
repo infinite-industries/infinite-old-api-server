@@ -65,3 +65,13 @@ http://localhost:3003/event-lists/addEvent/bc1afcd0-e37a-11e7-aa97-8d2f2418d66e/
 
 ### get event lists ###
 `curl http://localhost:3003/event-lists/ | python -m json.tool`
+
+### get users ###
+`curl http://localhost:3003/users | python -m json.tool`
+
+### Add list to user ###
+```
+curl -X PUT -H "Content-Type: application/json" \
+-d '{ "apikey":"2019529e-7f8c-44f9-8996-f52a88b2a314"}' \
+http://localhost:3003/users/addList/99af7550-f3e6-11e7-8279-f30c6795f584/2b305e60-f3e5-11e7-81a0-7d63d12f2c04
+```

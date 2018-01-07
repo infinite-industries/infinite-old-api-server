@@ -21,14 +21,15 @@ const events = require('./routes/events');
 const venues = require("./routes/venues");
 const curators = require("./routes/curators");
 const eventLists = require("./routes/eventLists");
+const users = require("./routes/users");
 
-console.log('!!! eventLists: ' + eventLists);
 app.use('/artworks', artworks);
 app.use("/artists", artists);
 app.use("/events", events);
 app.use("/venues", venues);
 app.use("/curators", curators);
 app.use("/event-lists", eventLists);
+app.use("/users", users);
 
 mongoose.set('debug', true);
 mongoose.connect('mongodb://localhost/infinite-api');

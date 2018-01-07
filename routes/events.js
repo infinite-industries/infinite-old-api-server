@@ -1,6 +1,6 @@
 // event related API endpoints
 const EventController = require("../controllers/events");
-const { getDefaultRouter } = require("./routeHelpers");
+const { getDefaultRouter } = require("./helpers/routeHelpers");
 const passport = require('passport');
 const router = getDefaultRouter("events", "event", EventController, { verified: false });
 
