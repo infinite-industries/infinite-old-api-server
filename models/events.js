@@ -45,7 +45,7 @@ const eventSchema = new Schema({
   description: String,
   links: Array,
   fb_event_link: String,
-  eventbright_link: String,
+  eventbrite_link: String,
   bitly_link: String,
   tags: Array,
   verified: Boolean

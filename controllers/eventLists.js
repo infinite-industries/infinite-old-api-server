@@ -5,10 +5,10 @@ const _ = require('lodash');
 
 module.exports = _.extend(DefaultController(EventListModel), {
 	allAndMergeWithEvents: function(callback) {
-		DefaultController.findAndMerge(EventListModel, EventModel, 'events', {}, callback);
+		DefaultController.findAndMerge(EventListModel, EventModel, ['events'], {}, callback);
 	},
 	findByIDAndMergeWithEvents: function(id, callback) {
-		DefaultController.findAndMerge(EventListModel, EventModel, 'events',{ id },
+		DefaultController.findAndMerge(EventListModel, EventModel, ['events'],{ id },
 			(err, docs) => callback(err, docs ? docs[0] : null));
 	},
 	addEvent: function(listID, eventID, callback) {

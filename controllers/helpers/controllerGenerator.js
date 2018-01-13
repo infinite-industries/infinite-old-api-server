@@ -31,7 +31,7 @@ function DefaultController(Model) {
 	};
 }
 
-DefaultController.findAndMerge = function(Model1, Model2, key, query, complete) {
+DefaultController.findAndMerge = function(Model1, Model2, keys, query, complete) {
 	async.waterfall([
 		function _getEventLists(_nextTask) {
 			Model1.find(query, _nextTask);
@@ -40,27 +40,42 @@ DefaultController.findAndMerge = function(Model1, Model2, key, query, complete) 
 			if (!model1Coll || model1Coll.length === 0)
 				return _nextTask(null, [], []);
 
-			const ids = model1Coll.map(list => list[key]).reduce((acc, v) =>  acc.concat(v));
+			/*
+				gets all ids stored under each of the keys we will merge,
+					at this point we simplify things by assuming all
+					fields being merged all point to the same type of
+					nested model as is the case with lists_my and lists_follow
+			 */
+			let ids = [];
+			keys.forEach(key => {
+				ids = ids.concat(model1Coll.map(list => list[key]).reduce((acc, v) =>  acc.concat(v)));
+			});
 
 			Model2.find({ id: { $in: ids } }, function(err, model2Coll) {
 				_nextTask(err, model1Coll, model2Coll);
 			});
 		},
 		function _mergeEventsIntoLists(model1Coll, model2Coll, _nextTask) {
-			if (model1Coll.length === 0)
-				return _nextTask(null, []);
+			if (!model1Coll || model1Coll.length === 0)
+					return _nextTask(null, []);
 
-			const mergedList = model1Coll.map(list => {
-				list[key] = list[key].map(mdlID => {
-					const entry = model2Coll.find(_e => _e.id === mdlID);
-					if (!entry)
-						console.warn('could not find %s id %s for %s: ', key, mdlID, Model1.modelName);
 
-					return entry;
+			let mergedList = model1Coll.map(list => {
+				keys.forEach(key => {
+                    if (!list[key])
+                        return; // empty key nothing to fill in
+
+                    list[key] = list[key].map(mdlID => {
+                        const entry = model2Coll.find(_e => _e.id === mdlID);
+                        if (!entry)
+                            console.warn('could not find %s id %s for %s: ', key, mdlID, Model1.modelName);
+
+                        return entry;
+                    });
 				});
 
-				return list;
-			});
+                return list;
+            });
 
 			_nextTask(null, mergedList);
 		}

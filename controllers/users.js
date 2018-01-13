@@ -5,10 +5,10 @@ const _ = require('lodash');
 
 module.exports = _.extend(DefaultController(UserModel), {
 	allAndMergeWithEventLists: function(callback) {
-		DefaultController.findAndMerge(UserModel, EventListModel, 'lists', {}, callback);
+		DefaultController.findAndMerge(UserModel, EventListModel, ['lists_my', 'lists_follow'], {}, callback);
 	},
 	findByIDAndMergeWithEventLists: function(id, callback) {
-		DefaultController.findAndMerge(UserModel, EventListModel, 'lists', { id },
+		DefaultController.findAndMerge(UserModel, EventListModel, ['lists_my', "lists_follow"], { id },
 			(err, docs) => callback(err, docs ? docs[0] : null));
 	},
 	addList: function(id, listID, callback) {

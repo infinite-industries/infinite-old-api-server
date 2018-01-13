@@ -9,8 +9,8 @@
     "deploy": "./deploy.sh production",
     "importEvents": "./scripts/importEvents.js --file ./data/event-listings.json",
     "createTestDevKey": "./scripts/createDevKey.js --user tester --org InfiniteTest --id 2019529e-7f8c-44f9-8996-f52a88b2a314",
-    "createTestEventLists": "createTestEventLists",
-    "createTestUser": "createTestUser",
+    "createTestEventLists": "./scripts/createTestEventLists.js",
+    "createTestUser": "./scripts/createTestUser.js",
     "setupDevEnv": "npm run importEvents && npm run createTestEventLists && npm run createTestDevKey && npm run createTestUser"
   },
   "keywords": [

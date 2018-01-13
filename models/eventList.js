@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const keySchema = new Schema({
 	id: { type: String, index: true },
-	name: String,
+	description: String,
+	list_name: String,
 	curators: Array,
 	is_public: Boolean,
 	events: Array,
