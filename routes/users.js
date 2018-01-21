@@ -18,6 +18,10 @@ router.put(
 	"/addList/:userID/:listID",
 	passport.authenticate('localapikey', { session: false }),
 	function(req, res) {
+
+		console.log("Adding a list - %s for user- %s",req.params.listID, req.params.userID);
+
+
 		UsersController.addList(req.params.userID, req.params.listID, function(err) {
 			if (err) {
 				console.warn("error adding event to list: " + err);

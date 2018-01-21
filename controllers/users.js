@@ -12,6 +12,7 @@ module.exports = _.extend(DefaultController(UserModel), {
 			(err, docs) => callback(err, docs ? docs[0] : null));
 	},
 	addList: function(id, listID, callback) {
-		UserModel.updateOne({ id }, { $push: { lists: listID } }, callback);
+		console.log('Hi I am a conotrller -', listID);
+		UserModel.updateOne({ id }, { $push: { lists_my: listID } }, callback);
 	}
 });
