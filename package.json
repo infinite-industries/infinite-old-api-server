@@ -7,11 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watchify": "watchify -vd -p browserify -e ./src/main.js -o ./public/js/dist.js",
     "deploy": "./deploy.sh production",
+    "dropDB": "mongo infinite-api --eval \"db.dropDatabase()\"",
     "importEvents": "./scripts/importEvents.js --file ./data/event-listings.json",
     "createTestDevKey": "./scripts/createDevKey.js --user tester --org InfiniteTest --id 2019529e-7f8c-44f9-8996-f52a88b2a314",
     "createTestEventLists": "./scripts/createTestEventLists.js",
     "createTestUser": "./scripts/createTestUser.js",
-    "setupDevEnv": "npm run importEvents && npm run createTestEventLists && npm run createTestDevKey && npm run createTestUser"
+    "createTestVenues": "./scripts/createTestVenues.js ",
+    "setupDevEnv": "npm run importEvents && npm run createTestEventLists && npm run createTestDevKey && npm run createTestUser && npm run createTestVenues"
   },
   "keywords": [
     "art",
