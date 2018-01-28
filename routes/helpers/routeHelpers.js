@@ -72,7 +72,8 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
     router.get("/:" + identifier,
 		readMiddleware,
         function(req, res) {
-            console.log("handling  get request for %s by id: %s", router_name, req.params[identifier]);
+            const id = req.params[identifier];
+            console.log("handling  get request for %s by id: %s", router_name, id);
 
 			const byIDMethod = options && options.byIDMethod ? options.byIDMethod : controller.findById;
             byIDMethod(req.params[identifier], function(err, data) {
@@ -93,18 +94,39 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
         }
     );
 
+    router.put(
+        '/:' + identifier,
+		passport.authenticate('localapikey', { session: false }),
+        (req, res) => {
+			const id = req.params[identifier];
+
+			console.log("handling put request for '%s' on id '%s'", router_name, id);
+			const postJSON= req.body[router_name_singular];
+
+			if (!postJSON)
+				return res.status(422).json({ status: router_name_singular + ' parameter is required' });
+
+			controller.update(id, postJSON, function(err) {
+				if (err) {
+					console.warn('error updating "%s"', router_name_singular + ': ' + err);
+					return res.status(500).json({ status: err });
+				}
+
+				res.status(200).json({ status: 'success', id: postJSON.id });
+			});
+        });
+
 	router.post(
 	    '/',
 		passport.authenticate('localapikey', { session: false }),
         function(req, res) {
             console.log("handling post request for '%s'", router_name);
             const postJSON= req.body[router_name_singular];
-            // console.log(postJSON);
+
             if (!postJSON)
                 return res.status(422).json({ status: router_name_singular + ' parameter is required' });
 
             postJSON.id = uuidv1();
-
 
             if (forcedValues) {
                 const keys = Object.keys(forcedValues);
