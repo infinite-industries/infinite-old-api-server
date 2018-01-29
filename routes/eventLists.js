@@ -20,10 +20,24 @@ router.put(
 			console.warn("error adding event to list: " + err);
 			res.status(500).json({ "status": constants.db_error });
 		} else {
-			res.status(200).json({ status: constants.success_status });
+			res.status(200).json({ status: constants.success_status, id: req.params.EventID });
 		}
 	});
 });
+
+router.put(
+	"/removeEvent/:eventListID/:EventID",
+	passport.authenticate('localapikey', { session: false }),
+	function(req, res) {
+		EventListController.removeEvent(req.params.eventListID, req.params.EventID, function(err) {
+			if (err) {
+				console.warn("error adding event to list: " + err);
+				res.status(500).json({ "status": constants.db_error });
+			} else {
+				res.status(200).json({ status: constants.success_status, id: req.params.EventID });
+			}
+		});
+	});
 
 module.exports = router;
 

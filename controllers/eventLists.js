@@ -13,5 +13,8 @@ module.exports = _.extend(DefaultController(EventListModel), {
 	},
 	addEvent: function(listID, eventID, callback) {
 		EventListModel.updateOne({ id: listID }, { $push: { events: eventID } }, callback);
+	},
+	removeEvent: function(listID, eventID, callback) {
+		EventListModel.updateOne({ id: listID }, { $pull: { events: eventID } }, callback);
 	}
 });

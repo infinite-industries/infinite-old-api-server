@@ -83,5 +83,11 @@ curl -X PUT -H "Content-Type: application/json" \
 http://localhost:3003/venues/d0858cc0-0478-11e8-808e-07b6d0fe568b"
 ```
 
+### Remove event from list
+```
+curl -X PUT -H "Content-Type: application/json" \
+-d '{ "apikey":"2019529e-7f8c-44f9-8996-f52a88b2a314"}' \
+http://localhost:3003/event-lists/removeEvent/feaea5b0-f3dd-11e7-9986-13e9e40ddffe/9bfb1e30-d3d5-11e7-86f9-b75399ffb386
+```
 ### Hey, Dev to Get Test Data In MONGO ###
 `npm run setupDevEnv`
