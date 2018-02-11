@@ -90,4 +90,4 @@ curl -X PUT -H "Content-Type: application/json" \
 http://localhost:3003/event-lists/removeEvent/feaea5b0-f3dd-11e7-9986-13e9e40ddffe/9bfb1e30-d3d5-11e7-86f9-b75399ffb386
 ```
 ### Hey, Dev to Get Test Data In MONGO ###
-`npm run setupDevEnv`
+`npm run dropDB && npm run setupDevEnv`
