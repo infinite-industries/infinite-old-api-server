@@ -25,6 +25,10 @@ function DefaultController(Model) {
 			debug('create: ' + JSON.stringify(data, null, 4));
 			Model.create(data, callback);
 		},
+		delete: (id, callback) => {
+			debug(`delete event "${id}"`)
+			Model.deleteOne({ id }, callback)
+		},
 		update: function(id, data, callback) {
 			Model.updateOne({ id }, data, callback);
 		},

@@ -21,7 +21,8 @@
     "fb_event_link":"https://www.facebook.com/events/374927322930829",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2i7i6Dw",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"fd370e90-d3d8-11e7-90d3-7dda46a0123a",
@@ -45,7 +46,8 @@
     "fb_event_link":"https://www.facebook.com/events/147782429307957",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2Abu71J",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"9f84bf80-d3e8-11e7-a7d2-5791e2d98ebb",
@@ -69,7 +71,8 @@
     "fb_event_link":"https://www.facebook.com/events/377448829343069",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2AFXlq2",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"995e4730-d9ff-11e7-b72a-357000d41ba8",
@@ -93,7 +96,8 @@
     "fb_event_link":"https://www.facebook.com/events/1497389993643093",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2jfYKcw",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"60af9ac0-d3d7-11e7-aaa2-c7989846bfd2",
@@ -117,7 +121,8 @@
     "fb_event_link":"https://www.facebook.com/events/888117038005610",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2AcamXL",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"8c0141d0-d6a5-11e7-9ed5-1778e928e048",
@@ -141,7 +146,8 @@
     "fb_event_link":"https://www.facebook.com/events/156477325102284",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2zHmfSd",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"29e4d7e0-d4b2-11e7-8d4b-41c2a8999d5d",
@@ -165,7 +171,8 @@
     "fb_event_link":"https://www.facebook.com/events/522436408134578",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2Byp2yi",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"efa969a0-d9fd-11e7-b80e-d52934d967d9",
@@ -189,7 +196,8 @@
     "fb_event_link":"https://www.facebook.com/events/713938005464906",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2AtTZWc",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"18a65a30-d327-11e7-971c-b1be48721fc2",
@@ -213,7 +221,8 @@
     "fb_event_link":"https://www.facebook.com/events/124508951554177",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2A77TgS",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"62e61110-d44b-11e7-8888-f528dc152237",
@@ -237,7 +246,8 @@
     "fb_event_link":"https://www.facebook.com/events/918226394997723/",
     "eventbrite_link":"https://www.eventbrite.com/e/harry-potter-yoga-tickets-40739763730?aff=es2",
     "bitly_link":"http://bit.ly/2ju4uin",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"8732d720-d4b3-11e7-a4ec-851b7d194d57",
@@ -261,7 +271,8 @@
     "fb_event_link":"https://www.facebook.com/events/332682843866769",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2k9hA8o",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"84b98530-d2af-11e7-9e9f-d3ccbb4bb3fc",
@@ -285,7 +296,8 @@
     "fb_event_link":"https://www.facebook.com/events/865636846931274",
     "eventbrite_link":"none",
     "bitly_link":"",
-    "tags":["not-implemented-yet"]
+    "tags":["not-implemented-yet"],
+    "verified": true
   },
   {
     "id":"4f835b40-d46a-11e7-bf1a-89bbe67b6521",
@@ -309,7 +321,8 @@
     "fb_event_link":"https://www.facebook.com/events/341514189608925",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2ib4TJJ",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"7592f1d0-d323-11e7-94fa-bd64cbc443de",
@@ -333,7 +346,8 @@
     "fb_event_link":"https://www.facebook.com/events/100963057338671",
     "eventbrite_link":"none",
     "bitly_link":"http://bit.ly/2n57HJY",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"0cc2d160-d32e-11e7-8655-edddf9cc7e7b",
@@ -357,7 +371,8 @@
     "fb_event_link":"https://www.facebook.com/events/140702149895481",
     "eventbrite_link":"https://www.eventbrite.com/e/the-lexington-gathering-tickets-38731437773",
     "bitly_link":"http://bit.ly/2k1GuXN",
-    "tags":["not-yet-implemented"]
+    "tags":["not-yet-implemented"],
+    "verified": true
   },
   {
     "id":"9bfb1e30-d3d5-11e7-86f9-b75399ffb386",
@@ -366,6 +381,55 @@
     "when":"Friday, February 9th, 2018 <br /> 7:30pm - 9:30pm",
     "time_start":"2018-02-09 19:30:00",
     "time_end": "2018-02-09 21:30:00",
+    "website": "none",
+    "image":"https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/9bfb1e30-d3d5-11e7-86f9-b75399ffb386.jpg",
+    "social_image":"https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/9bfb1e30-d3d5-11e7-86f9-b75399ffb386.jpg",
+    "venues":["Singletary Center for the Arts"],
+    "admission_fee": "$25 - $75",
+    "address": "405 Rose St, Lexington, Kentucky 40508",
+    "organizers":["Lexington Philharmonic"],
+    "map_link":"https://goo.gl/maps/uLQTd23sBsu",
+    "brief_description":"LexPhil opens the second half of the 2017/18 Season with Shostakovich's ground-breaking Symphony No. 7 in Revolution! Dedicated to the city of Leningrad, this work has remained a symbol of resistance against totalitarianism and militarism in both the Soviet Union and the West.",
+    "description":"<p>Shostakovich | Symphony No. 7 'Leningrad'</p><p><br></p><p>LexPhil opens the second half of the 2017/18 Season with Shostakovich's ground-breaking Symphony No. 7 in Revolution! Dedicated to the city of Leningrad, this work has remained a symbol of resistance against totalitarianism and militarism in both the Soviet Union and the West.</p>",
+    "links":["none"],
+    "ticket_link":"https://lexphil.secure.force.com/ticket/#sections_a0F360000082qY2EAI",
+    "fb_event_link":"https://www.facebook.com/events/293509574427970",
+    "eventbrite_link":"none",
+    "bitly_link":"http://bit.ly/2iasrOQ",
+    "tags":["not-yet-implemented"],
+    "verified": true
+  },
+  {
+    "id":"9bfb1e30-d3d5-11e7-86f9-b75399ffb387",
+    "title":"Import Test 1",
+    "slug":"lexphil-season-series-revolution!",
+    "when":"Friday, February 9th, 2018 <br /> 7:30pm - 9:30pm",
+    "time_start":"2018-06-09 19:30:00",
+    "time_end": "2018-06-09 21:30:00",
+    "website": "none",
+    "image":"https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/9bfb1e30-d3d5-11e7-86f9-b75399ffb386.jpg",
+    "social_image":"https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/9bfb1e30-d3d5-11e7-86f9-b75399ffb386.jpg",
+    "venues":["Singletary Center for the Arts"],
+    "admission_fee": "$25 - $75",
+    "address": "405 Rose St, Lexington, Kentucky 40508",
+    "organizers":["Lexington Philharmonic"],
+    "map_link":"https://goo.gl/maps/uLQTd23sBsu",
+    "brief_description":"LexPhil opens the second half of the 2017/18 Season with Shostakovich's ground-breaking Symphony No. 7 in Revolution! Dedicated to the city of Leningrad, this work has remained a symbol of resistance against totalitarianism and militarism in both the Soviet Union and the West.",
+    "description":"<p>Shostakovich | Symphony No. 7 'Leningrad'</p><p><br></p><p>LexPhil opens the second half of the 2017/18 Season with Shostakovich's ground-breaking Symphony No. 7 in Revolution! Dedicated to the city of Leningrad, this work has remained a symbol of resistance against totalitarianism and militarism in both the Soviet Union and the West.</p>",
+    "links":["none"],
+    "ticket_link":"https://lexphil.secure.force.com/ticket/#sections_a0F360000082qY2EAI",
+    "fb_event_link":"https://www.facebook.com/events/293509574427970",
+    "eventbrite_link":"none",
+    "bitly_link":"http://bit.ly/2iasrOQ",
+    "tags":["not-yet-implemented"]
+  },
+  {
+    "id":"9bfb1e30-d3d5-11e7-86f9-b75399ffb389",
+    "title":"Import Test 2",
+    "slug":"lexphil-season-series-revolution!",
+    "when":"Friday, February 9th, 2018 <br /> 7:30pm - 9:30pm",
+    "time_start":"2018-05-09 19:30:00",
+    "time_end": "2018-05-09 21:30:00",
     "website": "none",
     "image":"https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/9bfb1e30-d3d5-11e7-86f9-b75399ffb386.jpg",
     "social_image":"https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/9bfb1e30-d3d5-11e7-86f9-b75399ffb386.jpg",

@@ -145,5 +145,22 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
             });
 	});
 
+	router.delete(
+	    '/:' + identifier,
+        passport.authenticate('localapikey', { session: false }),
+        (req, res) => {
+            const id = req.params[identifier]
+	        console.log(`handling delete request for "${router_name}" for event id "${id}"`)
+
+            controller.delete(id, err => {
+                if (err) {
+                    console.warn(`error destroying "${id}: "${err}"`)
+                    return res.status(500).json({ status: err })
+                }
+
+                res.status(200).json({ status: 'success', id })
+            })
+        })
+
     return router;
 }

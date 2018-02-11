@@ -33,11 +33,13 @@ router.get('/current/verified', function(req, res) {
 });
 
 // allows admins to tag an event as verified
-router.post(
+router.put(
 	'/verify/:id',
-	passport.authenticate('localapikey', { session: false }),
-	function(req, res) {
+	passport.authenticate('localapikey', { session: false }), (req, res) => {
 		const id = req.params.id;
+
+        console.log(`handling request to verify event "${id}"`)
+
 		if (!id)
 			return res.status(404).json({ status: 'id is a required field' });
 
