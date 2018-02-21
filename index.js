@@ -13,8 +13,6 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 passport.use(getAPIKeyStrategy());
 
-app.use(express.static(path.join(__dirname, 'public')));
-
 var artworks = require('./routes/artworks');
 const artists = require('./routes/artists');
 const events = require('./routes/events');
@@ -33,7 +31,6 @@ app.use("/users", users);
 
 mongoose.set('debug', true);
 mongoose.connect('mongodb://localhost/infinite-api');
-
 
 var appPort = process.env.PORT || '3003';
 
