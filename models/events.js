@@ -28,6 +28,9 @@ const eventSchema = new Schema({
   website_link: String,
   facebook_event_link: String,
   notes: String,
+  admission_fee: String,
+  organizer_contact: String,
+  ticket_link: String,
 
   // === in json file ===
   title: String,
