@@ -1,4 +1,4 @@
-const RecentlySeenArtworkModel = require("../models/recentlySeenArtwork");
+const RecentlySeenArtworkModel = require("../models.bk/recentlySeenArtwork");
 const getDefaultController = require('./helpers/controllerGenerator');
 const _ = require('lodash');
 module.exports = _.extend(getDefaultController(RecentlySeenArtworkModel), {

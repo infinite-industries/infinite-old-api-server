@@ -1,5 +1,5 @@
-const UserModel = require('../models/users');
-const EventListModel = require('../models/eventList');
+const UserModel = require('../models.bk/users');
+const EventListModel = require('../models.bk/eventList');
 const DefaultController = require('./helpers/controllerGenerator');
 const _ = require('lodash');
 

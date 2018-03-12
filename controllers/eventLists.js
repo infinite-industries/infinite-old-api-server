@@ -1,12 +1,17 @@
-const EventListModel = require('../models/eventList.js');
-const EventModel = require('../models/events.js');
 const DefaultController = require('./helpers/controllerGenerator');
 const _ = require('lodash');
 
-module.exports = _.extend(DefaultController(EventListModel), {
-	allAndMergeWithEvents: function(callback) {
-		DefaultController.findAndMerge(EventListModel, EventModel, ['events'], {}, callback);
-	},
+module.exports = _.extend(DefaultController('event_list'), {
+	allAndMergeWithEvents: function(db, callback) {
+	    db.event_list.findAll({ include: { model: db.event } })
+          .then((data) => {
+              console.log('!!! yay')
+              console.log(data)
+              callback(null, data)
+          })
+          .catch(err => callback(err))
+		//DefaultController.findAndMerge(EventListModel, EventModel, ['events'], {}, callback);
+	},/*
 	findByIDAndMergeWithEvents: function(id, callback) {
 		DefaultController.findAndMerge(EventListModel, EventModel, ['events'],{ id },
 			(err, docs) => callback(err, docs ? docs[0] : null));
@@ -16,5 +21,5 @@ module.exports = _.extend(DefaultController(EventListModel), {
 	},
 	removeEvent: function(listID, eventID, callback) {
 		EventListModel.updateOne({ id: listID }, { $pull: { events: eventID } }, callback);
-	}
+	}*/
 });

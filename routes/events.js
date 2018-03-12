@@ -8,7 +8,7 @@ const router = getDefaultRouter("events", "event", EventController, { verified: 
 router.get('/current/non-verified', function(req, res) {
     const dt = new Date(Date.now());
     const query = { $and: [{ time_end: { $gt: dt }}, { verified: { $ne: true }}] };
-    EventController.all(function(err, events) {
+    EventController.all(req.app.get('db'), function(err, events) {
         if (err) {
             console.warn('error getting current/verified events: ' + err);
             return res.status(501).json({ status: 'failed: ' + err });
@@ -22,7 +22,7 @@ router.get('/current/non-verified', function(req, res) {
 router.get('/current/verified', function(req, res) {
 	const dt = new Date(Date.now());
 	const query = { $and: [{ time_end: { $gt: dt }}, { verified: true }] };
-	EventController.all(function(err, events) {
+	EventController.all(req.app.get('db'), function(err, events) {
 		if (err) {
 			console.warn('error getting current/verified events: ' + err);
 			return res.status(501).json({ status: 'failed: ' + err });
@@ -43,7 +43,7 @@ router.put(
 		if (!id)
 			return res.status(404).json({ status: 'id is a required field' });
 
-		EventController.update(id, { verified: true }, function(err) {
+		EventController.update(req.app.get('db'), id, { verified: true }, function(err) {
 			if (err)
 				return res.status(500).json({ status: 'failed: ' + err });
 

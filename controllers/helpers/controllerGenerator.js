@@ -2,37 +2,53 @@ const async = require('async');
 
 module.exports = DefaultController;
 
-function DefaultController(Model) {
-	const debug = require('debug')('models:' + Model.modelName);
+function DefaultController(modelName) {
+    const debug = require('debug')('models:' + modelName);
 
-	return {
-		findById: function(id, callback) {
-			debug('findById: ' + id);
-			Model.findOne({ id: id }, callback)
-		},
+    const flattenModel = mdl => {
+        // flatten attributes
+        const { attrs, ...flatProps } = mdl.toJSON()
+        return { ...flatProps, ...attrs }
+    }
 
-		all: function(callback, query, filter_field) {
-			debug('all');
+    return {
+        findById: function(db, id, callback) {
+            debug('findById: ' + id);
+            db[modelName].findById(id)
+              .then(model => callback(null, flattenModel(model)))
+              .catch(err => callback(err))
+        },
+
+        all: function(db, callback, query, filter_field) {
+            debug('all');
+            /*
+                debug('all');
 			query = query || {};
 
 			if (filter_field) {
 				query[opts.filter_field] = true;
 			}
-
-			Model.find(query, callback);
-		},
-		create: function(data, callback) {
-			debug('create: ' + JSON.stringify(data, null, 4));
-			Model.create(data, callback);
-		},
-		delete: (id, callback) => {
-			debug(`delete event "${id}"`)
-			Model.deleteOne({ id }, callback)
-		},
-		update: function(id, data, callback) {
-			Model.updateOne({ id }, data, callback);
-		},
-	};
+             */
+            db[modelName].findAll()
+              .then(models => {
+                  callback(null, models.map(flattenModel))
+              })
+              .catch(err => {
+                  callback(err)
+              })
+        },
+        create: function(db, data, callback) {
+            debug('create: ' + JSON.stringify(data, null, 4));
+            db[modelName].create(data, callback);
+        },
+        delete: (db, id, callback) => {
+            debug(`delete event "${id}"`)
+            db[modelName].deleteOne({ id }, callback)
+        },
+        update: function(db, id, data, callback) {
+            db[modelName].updateOne({ id }, data, callback);
+        },
+    };
 }
 
 DefaultController.findAndMerge = function(Model1, Model2, keys, query, complete) {

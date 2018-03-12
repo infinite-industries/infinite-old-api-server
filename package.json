@@ -15,7 +15,7 @@
     "createTestEventLists": "./scripts/createTestEventLists.js",
     "createTestUser": "./scripts/createTestUser.js",
     "createTestVenues": "./scripts/createTestVenues.js ",
-    "setupDevEnv": "npm run importEvents && npm run createTestEventLists && npm run createTestDevKey && npm run createTestUser && npm run createTestVenues"
+    "setup-dev": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
   },
   "keywords": [
     "art",
@@ -55,6 +55,9 @@
     "passport": "^0.4.0",
     "passport-localapikey": "0.0.3",
     "path": "^0.12.7",
+    "pg": "^7.4.1",
+    "sequelize": "^4.35.5",
+    "sequelize-cli": "^4.0.0",
     "slack-notify": "^0.1.6",
     "vue": "^2.4.2",
     "vue-form-generator": "^2.0.0",

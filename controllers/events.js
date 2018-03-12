@@ -7,7 +7,5 @@
 *
 * */
 
-const EventsModel = require("../models/events.js");
 const getDefaultController = require('./helpers/controllerGenerator');
-
-module.exports = getDefaultController(EventsModel);
+module.exports = getDefaultController('event')
