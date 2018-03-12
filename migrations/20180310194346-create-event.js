@@ -45,7 +45,10 @@ module.exports = {
                 eventbrite_link: Sequelize.STRING,
                 bitly_link: Sequelize.STRING,
                 tags: Sequelize.ARRAY(Sequelize.STRING),
-                verified: Sequelize.BOOLEAN,
+                verified: {
+                  type: Sequelize.BOOLEAN,
+                  defaultValue: 'false'
+                },
                 createdAt: {
                     allowNull: false,
                     type: Sequelize.DATE,

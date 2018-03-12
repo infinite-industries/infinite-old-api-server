@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     eventbrite_link: DataTypes.STRING,
     bitly_link: DataTypes.STRING,
     tags: DataTypes.ARRAY(DataTypes.STRING),
-    verified: DataTypes.BOOLEAN
+    verified: { type: DataTypes.BOOLEAN, defaultValue: false }
   }, {});
   event.associate = function(models) {
       event.belongsToMany(models.event_list, { through: 'event_list_memberships', as: 'list' })
