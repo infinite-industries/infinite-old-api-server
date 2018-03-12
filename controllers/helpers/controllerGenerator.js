@@ -5,33 +5,25 @@ module.exports = DefaultController;
 function DefaultController(modelName) {
     const debug = require('debug')('models:' + modelName);
 
-    const flattenModel = mdl => {
-        // flatten attributes
-        const { attrs, ...flatProps } = mdl.toJSON()
-        return { ...flatProps, ...attrs }
-    }
-
     return {
         findById: function(db, id, callback) {
             debug('findById: ' + id);
             db[modelName].findById(id)
-              .then(model => callback(null, flattenModel(model)))
+              .then(model => callback(null, model))
               .catch(err => callback(err))
         },
 
         all: function(db, callback, query, filter_field) {
             debug('all');
-            /*
-                debug('all');
-			query = query || {};
+			      query = query || {};
 
-			if (filter_field) {
-				query[opts.filter_field] = true;
-			}
-             */
-            db[modelName].findAll()
+            /*if (filter_field) {
+              query[opts.filter_field] = true;
+            }*/
+
+            db[modelName].findAll(query)
               .then(models => {
-                  callback(null, models.map(flattenModel))
+                  callback(null, models)
               })
               .catch(err => {
                   callback(err)

@@ -15,7 +15,9 @@
     "createTestEventLists": "./scripts/createTestEventLists.js",
     "createTestUser": "./scripts/createTestUser.js",
     "createTestVenues": "./scripts/createTestVenues.js ",
-    "setup-dev": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
+    "setup-create-db": "sequelize db:create",
+    "setup-drop-db": "sequelize db:drop",
+    "setup-dev": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all"
   },
   "keywords": [
     "art",

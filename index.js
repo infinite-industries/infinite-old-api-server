@@ -8,7 +8,7 @@ var dotenv = require('dotenv');
 const passport = require('passport');
 const getAPIKeyStrategy = require('./expressMiddleWare/DevTokenAuthStrategy');
 const Sequelize = require('sequelize')
-const sequelize = new Sequelize('infinite_api', 'chris', 'xxx', {
+const sequelize = new Sequelize('infinite_api', 'postgres', 'xxx', {
     host: 'localhost',
     dialect: 'postgres',
     operatorsAliases: false,

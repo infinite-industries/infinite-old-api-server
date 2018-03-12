@@ -17,9 +17,6 @@ module.exports = {
                 slug: {
                     type: Sequelize.STRING
                 },
-                attrs: {
-                    type: Sequelize.JSONB
-                },
                 time_start: {
                   allowNull: false,
                   type: Sequelize.DATE
@@ -32,6 +29,23 @@ module.exports = {
                   allowNull: false,
                   type: Sequelize.STRING
                 },
+                website: Sequelize.STRING,
+                image: Sequelize.STRING,
+                social_image: Sequelize.STRING,
+                venues: Sequelize.ARRAY(Sequelize.STRING), // array of strings for now
+                admission_fee: Sequelize.STRING,
+                address: Sequelize.STRING,
+                organizers: Sequelize.ARRAY(Sequelize.STRING), // array of strings for now
+                map_link: Sequelize.STRING,
+                brief_description: Sequelize.STRING,
+                description: Sequelize.TEXT,
+                links: Sequelize.ARRAY(Sequelize.STRING),
+                ticket_link: Sequelize.STRING,
+                fb_event_link: Sequelize.STRING,
+                eventbrite_link: Sequelize.STRING,
+                bitly_link: Sequelize.STRING,
+                tags: Sequelize.ARRAY(Sequelize.STRING),
+                verified: Sequelize.BOOLEAN,
                 createdAt: {
                     allowNull: false,
                     type: Sequelize.DATE,

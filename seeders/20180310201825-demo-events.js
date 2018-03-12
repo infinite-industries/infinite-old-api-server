@@ -30,18 +30,7 @@ module.exports = {
             const futureEndTime = new Date(futureStartTime)
             futureEndTime.setMinutes(futureEndTime.getMinutes() + Math.floor(Math.random() * 120 + 1))
 
-            const event = {
-              id: json.id,
-              title: json.title,
-              slug: json.slug,
-              attrs: JSON.stringify(json.attrs),
-              time_start: futureStartTime,
-              time_end: futureEndTime,
-              when: futureStartTime.toUTCString(),
-              //createdAt: new Date(Date.now()),
-              //updatedAt: new Date(Date.now())
-            }
-            return event
+            return { ... json, time_start: futureStartTime, time_end: futureEndTime }
           })
 
           queryInterface.bulkInsert('events', events, {})
