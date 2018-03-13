@@ -1,4 +1,4 @@
-const getConnection = require(__dirname +'/../../db/connection');
+const getConnection = require(__dirname +'/../../db/connection.bk.js');
 const async = require('async');
 const fs = require('fs');
 

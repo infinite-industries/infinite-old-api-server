@@ -1,5 +1,6 @@
-{
+module.exports = {
   "development": {
+      logging: console.log,
     "username": "postgres",
     "password": "xxx",
     "database": "infinite_api",

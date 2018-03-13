@@ -5,8 +5,6 @@ module.exports = _.extend(DefaultController('event_list'), {
 	allAndMergeWithEvents: function(db, callback) {
 	    db.event_list.findAll({ include: { model: db.event } })
           .then((data) => {
-              console.log('!!! yay')
-              console.log(data)
               callback(null, data)
           })
           .catch(err => callback(err))

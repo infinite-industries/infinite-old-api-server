@@ -7,30 +7,14 @@ var mongoose = require('mongoose');
 var dotenv = require('dotenv');
 const passport = require('passport');
 const getAPIKeyStrategy = require('./expressMiddleWare/DevTokenAuthStrategy');
-const Sequelize = require('sequelize')
-const sequelize = new Sequelize('infinite_api', 'postgres', 'xxx', {
-    host: 'localhost',
-    dialect: 'postgres',
-    operatorsAliases: false,
-
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    }
-})
+const sequelize = require('./db/connection')()
 
 var app = express();
-
-sequelize.event = sequelize.import(__dirname + '/models/event');
-sequelize.event_list_membership = sequelize.import(__dirname + '/models/event_list_membership')
-sequelize.event_list = sequelize.import(__dirname + '/models/event_list')
 
 app.set('db', sequelize)
 app.use(bodyParser.json());
 app.use(passport.initialize());
-passport.use(getAPIKeyStrategy());
+passport.use(getAPIKeyStrategy(sequelize));
 
 const events = require('./routes/events');
 const venues = require("./routes/venues");

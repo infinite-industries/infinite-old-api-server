@@ -46,8 +46,9 @@ module.exports = {
                 bitly_link: Sequelize.STRING,
                 tags: Sequelize.ARRAY(Sequelize.STRING),
                 verified: {
-                  type: Sequelize.BOOLEAN,
-                  defaultValue: 'false'
+                    allowNull: false,
+                    type: Sequelize.BOOLEAN,
+                    defaultValue: false
                 },
                 createdAt: {
                     allowNull: false,

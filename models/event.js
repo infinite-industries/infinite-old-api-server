@@ -1,6 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
   const event = sequelize.define('event', {
-    id: { type: DataTypes.UUIDV4, primaryKey: true },
+    id: {
+      type: DataTypes.UUIDV4,
+      primaryKey: true
+    },
     title: DataTypes.STRING,
     slug: DataTypes.STRING,
     time_start: DataTypes.DATE,
@@ -22,7 +25,11 @@ module.exports = (sequelize, DataTypes) => {
     eventbrite_link: DataTypes.STRING,
     bitly_link: DataTypes.STRING,
     tags: DataTypes.ARRAY(DataTypes.STRING),
-    verified: { type: DataTypes.BOOLEAN, defaultValue: false }
+    verified: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+    }
   }, {});
   event.associate = function(models) {
       event.belongsToMany(models.event_list, { through: 'event_list_memberships', as: 'list' })

@@ -30,10 +30,13 @@ module.exports = {
             const futureEndTime = new Date(futureStartTime)
             futureEndTime.setMinutes(futureEndTime.getMinutes() + Math.floor(Math.random() * 120 + 1))
 
+              /*if (json.id === '2c452a90-09ae-11e8-bcdb-1d50656d5407') {
+                console.log('!!! here: ' + JSON.stringify({ ... json, time_start: futureStartTime, time_end: futureEndTime }, null, 4))
+              }*/
             return { ... json, time_start: futureStartTime, time_end: futureEndTime }
           })
 
-          queryInterface.bulkInsert('events', events, {})
+          queryInterface.bulkInsert('events', events, { omitNull: true })
             .then(() => _nextTask())
             .catch(err => _nextTask(err))
         }

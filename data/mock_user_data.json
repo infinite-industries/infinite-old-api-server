@@ -11,15 +11,8 @@
     "twitter":"twitter link",
     "instagram": "none"
   },
-  "permissions":{
-    "can_post_as_venues":[
-      {"venue_id":"infinite"}
-    ],
-    "can_edit_lists":[
-      {"list_id":"sd1234"},
-      {"list_id":"sd1234"}
-    ]
-  },
+  "permissions_edit_lists": {},
+  "permissions_post_as_venues": {},
   "lists_my": ["feaea5b0-f3dd-11e7-9986-13e9e40ddffe", "0a5eaf80-f3e4-11e7-9946-cbdccd345d9e"],
   "lists_follow": ["c8fc81a0-f890-11e7-85c3-3949696a30fc", "c6d9a1a0-f890-11e7-85c3-3949696a30fc"]
 }

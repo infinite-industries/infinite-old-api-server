@@ -110,4 +110,5 @@ curl http://localhost:3003/events/current/verified/?apikey=2019529e-7f8c-44f9-89
 
 - https://hub.docker.com/_/postgres/
 - Connect from host with `psql -h localhost -U postgres`
+- Note migrations need super user access to run, we probably wan't to run migrations and the application against two different postgres users
 

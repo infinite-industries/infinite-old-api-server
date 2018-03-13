@@ -1,9 +1,26 @@
-const mongoose = require('mongoose');
+const Sequelize = require('sequelize');
 
-module.exports = function getConnection(complete) {
-	const mongoURL = 'mongodb://localhost/infinite-api';
-	mongoose.set('debug', true);
-	mongoose.connect('mongodb://localhost/infinite-api');
-	console.log('connecting to: ' + mongoURL);
-	complete(null, mongoose);
+module.exports = function getConnection() {
+    const sequelize = new Sequelize('infinite_api', 'postgres', 'xxx', {
+        host: 'localhost',
+        dialect: 'postgres',
+        operatorsAliases: false,
+
+        pool: {
+            max: 5,
+            min: 0,
+            acquire: 30000,
+            idle: 10000
+        }
+    })
+
+    sequelize.event = sequelize.import(__dirname + '/../models/event');
+    sequelize.event_list_membership = sequelize.import(__dirname + '/../models/event_list_membership')
+    sequelize.event_list = sequelize.import(__dirname + '/../models/event_list')
+    sequelize.dev_key = sequelize.import(__dirname + '/../models/dev_key')
+    sequelize.venue = sequelize.import(__dirname + '/../models/venue')
+    sequelize.user = sequelize.import(__dirname + '/../models/user')
+    sequelize.user_list_ownership = sequelize.import(__dirname + '/../models/user_list_ownership')
+
+    return sequelize
 };
