@@ -31,14 +31,20 @@ function DefaultController(modelName) {
         },
         create: function(db, data, callback) {
             debug('create: ' + JSON.stringify(data, null, 4));
-            db[modelName].create(data, callback);
+            db[modelName].create(data, callback)
+              .then(() => callback())
+              .catch(err => callback(err));
         },
         delete: (db, id, callback) => {
             debug(`delete event "${id}"`)
-            db[modelName].deleteOne({ id }, callback)
+            db[modelName].destroy({ where: { id } })
+              .then(() => callback())
+              .catch(err => callback(err))
         },
         update: function(db, id, data, callback) {
-            db[modelName].updateOne({ id }, data, callback);
+            db[modelName].update(data, { where: { id }})
+              .then(() => callback())
+              .catch(err => callback(err))
         },
     };
 }

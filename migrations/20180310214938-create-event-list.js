@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('event_lists', {
@@ -11,7 +10,8 @@ module.exports = {
 
       // TODO (CAW) -- just normalize to title for all models
       list_name: {
-        type: Sequelize.STRING
+          type: Sequelize.STRING,
+          allowNull: false
       },
       description: {
         type: Sequelize.STRING
@@ -29,9 +29,9 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('now()')
       }
-    });
+    })
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('event_lists');
   }
-};
+}

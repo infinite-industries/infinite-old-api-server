@@ -48,7 +48,7 @@ npm run importEvents
 ### Create an Event List ###
 ```
 curl -X POST -H "Content-Type: application/json" \
--d '{ "eventList": {"name":"chris list" }, "apikey":"2019529e-7f8c-44f9-8996-f52a88b2a314"}' \
+-d '{ "eventList": {"list_name":"chris list" }, "apikey":"2019529e-7f8c-44f9-8996-f52a88b2a314"}' \
 http://localhost:3003/event-lists
 ```
 
