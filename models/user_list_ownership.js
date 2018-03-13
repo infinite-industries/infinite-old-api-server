@@ -5,9 +5,10 @@ module.exports = (sequelize, DataTypes) => {
     }, {});
 
     sequelize.user.belongsToMany(sequelize.event_list, {
-        through: user_list_ownership,
+        through: { model: user_list_ownership },
         foreignKey: 'user_id',
-        otherKey: 'event_list_id'
+        otherKey: 'event_list_id',
+        as: 'lists_my'
     })
 
     return user_list_ownership;

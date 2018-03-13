@@ -3,7 +3,7 @@ const _ = require('lodash');
 
 module.exports = _.extend(DefaultController('event_list'), {
 	allAndMergeWithEvents: function(db, callback) {
-	    db.event_list.findAll({ include: { model: db.event } })
+	    db.event_list.findAll({ include: { model: db.event, through: { attributes: [] } } })
           .then((data) => {
               callback(null, data)
           })

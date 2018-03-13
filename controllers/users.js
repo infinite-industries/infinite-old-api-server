@@ -3,8 +3,11 @@ const _ = require('lodash');
 
 module.exports = _.extend(DefaultController('user'), {
     allAndMergeWithEventLists: function (db, callback) {
-    	console.log('!!! much here')
-        db.user.findAll({include: {model: db.event_list}})
+        db.user.findAll({include: [
+            { model: db.event_list, as: 'lists_my', through: { attributes: [] } },
+            { model: db.event_list, as: 'lists_follow', through: { attributes: [] } },
+          ]
+        })
           .then((data) => {
           		console.log('GRR')
               callback(null, data)
