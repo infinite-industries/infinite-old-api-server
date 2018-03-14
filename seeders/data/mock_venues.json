@@ -18,5 +18,13 @@
   { "id": "446e9860-047a-11e8-808e-07b6d0fe568b", "slug":"farrish", "name":"Farish Theater", "address":"140 E Main St, Lexington, Kentucky 40507", "g_map_link":"https://goo.gl/maps/ewNPYZsX95L2"},
   { "id": "4a06a1f0-047a-11e8-808e-07b6d0fe568b", "slug":"brier_books", "name":"Brier Books", "address":"319 S Ashland Ave, Lexington, KY 40502", "g_map_link":"https://goo.gl/maps/ebYWdVHj27H2"},
   { "id": "4f5c7260-047a-11e8-808e-07b6d0fe568b", "slug":"lyric_theater", "name":"Lyric Theatre & Cultural Arts Center", "address":"300 E Third St, Lexington, KY 40508", "g_map_link":"https://goo.gl/maps/onMCXLbESuq"},
-  { "id": "54348750-047a-11e8-808e-07b6d0fe568b", "slug":"morland", "name":"Morlan Gallery", "address":"300 N Broadway, Lexington, KY 40508", "g_map_link":"https://goo.gl/maps/sCZ4P8bUkNw"}
+  { "id": "54348750-047a-11e8-808e-07b6d0fe568b", "slug":"morland", "name":"Morlan Gallery", "address":"300 N Broadway, Lexington, KY 40508", "g_map_link":"https://goo.gl/maps/sCZ4P8bUkNw"},
+  { "id": "44348750-047a-11e8-808e-07b6d0fe568b", "slug":"transy", "name":"Transylvania University Library", "address":"300 N Broadway, Lexington, Kentucky 40508", "g_map_link":"https://goo.gl/maps/abNS5ay9MRJ2"},
+  { "id": "34348750-047a-11e8-808e-07b6d0fe568b", "slug":"lexcenter", "name":"The Lexington Center", "address":"430 W Vine St, Lexington, KY 40507", "g_map_link":"https://goo.gl/maps/xPRe8nzEdEK2"},
+  { "id": "bc6852cc-7730-402e-a343-72c3bfb1e61a", "slug":"pivot", "name":"Pivot Brewing", "address":"1400 Delaware Ave, Lexington, KY 40505", "g_map_link":"https://goo.gl/maps/XBATzcDxLro"},
+  { "id": "babb8118-ad90-4cbb-aeaa-361ace35d479", "slug":"plantory", "name":"The Plantory", "address":"501 W 6th St Suite 250, Lexington, KY 40508", "g_map_link":"https://goo.gl/maps/8S81XyKx57C2"},
+  { "id": "197d2c60-6b9a-412f-9cfc-468e25a5c9cc", "slug":"theparachutefactory", "name":"The Parachute Factory", "address":"720 Bryan Ave. Lexington KY", "g_map_link":"https://goo.gl/maps/3BFZuB9ffa92"},
+  { "id": "89cd986b-382b-4bf3-95b4-9b2e42db335b", "slug":"ukartmueum", "name":"UK Art Museum", "address":"405 Rose St, Lexington, Kentucky 40508", "g_map_link":"https://goo.gl/maps/uLQTd23sBsu"},
+  { "id": "8d4df28f-78bc-4328-afa0-cb7064e276e6", "slug":"alsbar", "name":"Al's Bar", "address":"601 N Limestone, Lexington, KY 40508", "g_map_link":"https://goo.gl/maps/naMxQHVzL2t"},
+  { "id": "4bf24a00-4739-4efc-9b35-07e3d6a1629a", "slug":"kentuckyforkentucky", "name":"Kentucky for Kentucky", "address":"720 Bryan Ave, Lexington, KY 40505", "g_map_link":"https://goo.gl/maps/XspXNU4Pyiv"}
 ]

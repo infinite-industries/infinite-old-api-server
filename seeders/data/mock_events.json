@@ -6,12 +6,10 @@
       "when":"Thursday, March 1st, 2018 <br /> 4:30pm - 7:00pm",
       "time_start":"2018-03-01 16:30:00",
       "time_end": "2018-03-01 19:00:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/4033cdc0-1013-11e8-92c0-336570470539.jpg",
       "social_image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/4033cdc0-1013-11e8-92c0-336570470539.jpg",
-      "venues": [
-        "Bolivar Art Gallery - UK School of Art"
-      ],
+      "venue_id": "e0f0ee00-0479-11e8-808e-07b6d0fe568b",
       "admission_fee": "none",
       "address": "236 Bolivar St, Lexington, KY 40508",
       "organizers": [
@@ -39,12 +37,10 @@
       "when":"Friday, March 2nd, 2018 <br /> 7:00pm - 12:00am",
       "time_start":"2018-03-02 19:00:00",
       "time_end": "2018-03-05 24:00:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/4476e030-0121-11e8-9f62-7f0c5ccefde3.jpg",
       "social_image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/4476e030-0121-11e8-9f62-7f0c5ccefde3.jpg",
-      "venues": [
-        "The Burl"
-      ],
+      "venue_id": "d9107b10-0479-11e8-808e-07b6d0fe568b",
       "admission_fee": "Student Tickets: $15   -    General Admission: $20 - Sunday is a free show!",
       "address": "375 Thompson Rd, Lexington, KY 40508",
       "organizers": [
@@ -73,12 +69,10 @@
       "when":"Saturday, March 3rd, 2018 <br /> 5:00pm - 9:59am",
       "time_start":"2018-03-03 17:00:00",
       "time_end": "2018-02-18 09:59:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/8fa8c650-14bc-11e8-8723-91278ff71bac.jpg",
       "social_image": "none",
-      "venues": [
-        "Kentucky for Kentucky"
-      ],
+      "venue_id": "4bf24a00-4739-4efc-9b35-07e3d6a1629a",
       "admission_fee": "none",
       "address": "720 Bryan Ave, Lexington, KY 40505",
       "organizers": [
@@ -106,12 +100,10 @@
       "when":"Saturday, March 3rd, 2018 <br /> 1:00pm - 5:00pm",
       "time_start":"2018-03-03 13:00:00",
       "time_end": "2018-03-03 17:00:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/544b0ab0-14cf-11e8-8de6-d304c9f8e48f.jpg",
       "social_image": "none",
-      "venues": [
-        "Transylvania University Library"
-      ],
+      "venue_id": "44348750-047a-11e8-808e-07b6d0fe568b",
       "admission_fee": "none",
       "address": "300 N Broadway, Lexington, Kentucky 40508",
       "organizers": [
@@ -139,12 +131,10 @@
     "when":"Thursday, March 8th, 2018 <br /> 6pm - 7pm",
     "time_start":"2018-03-08 18:00:00",
     "time_end": "2018-03-08 19:00:00",
-    "website": "http://www.transy.edu/about/arts/morlan/exhibitions",
+    "website_link": "http://www.transy.edu/about/arts/morlan/exhibitions",
     "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/3f98b0d0-1656-11e8-812a-37884d77e697.jpg",
     "social_image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/social/3f98b0d0-1656-11e8-812a-37884d77e697_social.jpg",
-    "venues": [
-      "Morlan Gallery"
-    ],
+    "venue_id": "54348750-047a-11e8-808e-07b6d0fe568b",
     "admission_fee": "none",
     "address": "300 N Broadway, Lexington, KY 40508",
     "organizers": [
@@ -172,12 +162,10 @@
      "when":"Friday, March 9th, 2018 <br /> 1:00pm - 4:00pm",
      "time_start":"2018-03-09 13:00:00",
      "time_end": "2018-03-11 16:00:00",
-     "website": "none",
+     "website_link": "none",
      "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/030dbae0-fb01-11e7-a13a-8b2023534d21.jpg",
      "social_image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/030dbae0-fb01-11e7-a13a-8b2023534d21.jpg",
-     "venues": [
-       "The Lexington Center"
-     ],
+     "venue_id": "34348750-047a-11e8-808e-07b6d0fe568b",
      "admission_fee": "$20-65",
      "address": "430 W Vine St, Lexington, KY 40507",
      "organizers": [
@@ -205,12 +193,10 @@
       "when":"Saturday, March 10th, 2018 <br /> 1:00pm - 5:00pm",
       "time_start":"2018-03-10 13:00:00",
       "time_end": "2018-03-10 17:00:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/eb161b80-14b9-11e8-a505-05991a70c9cc.jpg",
       "social_image": "none",
-      "venues": [
-        "Pivot Brewing"
-      ],
+      "venue_id": "bc6852cc-7730-402e-a343-72c3bfb1e61a",
       "admission_fee": "none",
       "address": "1400 Delaware Ave, Lexington, KY 40505",
       "organizers": [
@@ -238,12 +224,10 @@
       "when":"Friday, March 16th, 2018 <br /> 5:00pm - 8:00pm",
       "time_start":"2018-03-16 17:00:00",
       "time_end": "2018-03-16 20:00:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/77eb2fc0-14b8-11e8-8a75-411a213356a1.jpg",
       "social_image": "none",
-      "venues": [
-        "The Plantory"
-      ],
+      "venue_id": "babb8118-ad90-4cbb-aeaa-361ace35d479",
       "admission_fee": "none",
       "address": "501 W 6th St Suite 250, Lexington, KY 40508",
       "organizers": [
@@ -271,12 +255,10 @@
       "when":"Sunday, March 18th, 2018 <br /> 2:00pm - 3:30pm",
       "time_start":"2018-03-18 14:00:00",
       "time_end": "2018-03-18 15:30:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/b3edd070-1401-11e8-8588-e5c29a7c49a0.jpg",
       "social_image": "none",
-      "venues": [
-        "Brier Books"
-      ],
+      "venue_id": "4a06a1f0-047a-11e8-808e-07b6d0fe568b",
       "admission_fee": "none",
       "address": "319 S Ashland Ave, Lexington, KY 40502",
       "organizers": [
@@ -304,12 +286,10 @@
     "when":"Wednesday, March 21st, 2018 <br /> 6:00pm - 8:00pm",
     "time_start":"2018-03-21 18:00:00",
     "time_end": "2018-03-21 20:00:00",
-    "website": "none",
+    "website_link": "none",
     "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/e2341010-fc9c-11e7-9d0a-e50bdd721b16.jpg",
     "social_image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/e2341010-fc9c-11e7-9d0a-e50bdd721b16.jpg",
-    "venues": [
-      "UK Art Museum"
-    ],
+    "venue_id": "89cd986b-382b-4bf3-95b4-9b2e42db335b",
     "admission_fee": "none",
     "address": "405 Rose St, Lexington, Kentucky 40508",
     "organizers": [
@@ -337,12 +317,10 @@
       "when":"Friday, March 23rd, 2018 <br /> 8:00pm - 2:00am",
       "time_start":"2018-03-23 20:00:00",
       "time_end": "2018-03-25 02:00:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/2465cd20-1011-11e8-92bd-25a8d06f1781.jpg",
       "social_image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/2465cd20-1011-11e8-92bd-25a8d06f1781.jpg",
-      "venues": [
-        "Al's Bar"
-      ],
+      "venue_id": "8d4df28f-78bc-4328-afa0-cb7064e276e6",
       "admission_fee": "none",
       "address": "601 N Limestone, Lexington, KY 40508",
       "organizers": [
@@ -370,12 +348,10 @@
       "when":"Friday, April 6th, 2018 <br /> 5:00pm - 9:00pm",
       "time_start":"2018-04-06 17:00:00",
       "time_end": "2018-04-06 21:00:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/7e5d11b0-1b12-11e8-880d-2520cd90ca5b.jpg",
       "social_image": "none",
-      "venues": [
-        "The Parachute Factory"
-      ],
+      "venue_id": "197d2c60-6b9a-412f-9cfc-468e25a5c9cc",
       "admission_fee": "none",
       "address": "720 Bryan Ave. Lexington KY",
       "organizers": [
@@ -403,12 +379,10 @@
       "when":"Saturday, April 28th, 2018 <br /> 9:00pm - 9:48am",
       "time_start":"2018-04-28 21:00:00",
       "time_end": "2018-02-18 09:48:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/f1815e20-14ba-11e8-8679-b156215d9763.jpg",
       "social_image": "none",
-      "venues": [
-        "Cosmic Charlie's"
-      ],
+      "venue_id": "f1c12100-0479-11e8-808e-07b6d0fe568b",
       "admission_fee": "18+ // $8 ADV // $10 DOS",
       "address": "723 National Ave, Lexington, KY 40502",
       "organizers": [
@@ -436,12 +410,10 @@
       "when":"Saturday, April 28th, 2018 <br /> 7:00pm - 9:45pm",
       "time_start":"2018-04-28 19:00:00",
       "time_end": "2018-04-28 21:45:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/f16dfa00-14b6-11e8-a46c-132a01e069f2.jpg",
       "social_image": "none",
-      "venues": [
-        "Lyric Theatre & Cultural Arts Center"
-      ],
+      "venue_id": "4f5c7260-047a-11e8-808e-07b6d0fe568b",
       "admission_fee": "none",
       "address": "300 E Third St, Lexington, KY 40508",
       "organizers": [
@@ -469,12 +441,10 @@
       "when":"Tuesday, June 12th, 2018 <br /> 7:00pm - 2:00am",
       "time_start":"2018-06-12 19:00:00",
       "time_end": "2018-06-12 24:00:00",
-      "website": "none",
+      "website_link": "none",
       "image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/2c452a90-09ae-11e8-bcdb-1d50656d5406.jpg",
       "social_image": "https://s3-us-west-2.amazonaws.com/infinite-industries-event-images/uploads/2c452a90-09ae-11e8-bcdb-1d50656d5406.jpg",
-      "venues": [
-        "Cosmic Charlie's"
-      ],
+      "venue_id": "f1c12100-0479-11e8-808e-07b6d0fe568b",
       "admission_fee": "none",
       "address": "723 National Ave, Lexington, KY 40502",
       "organizers": [

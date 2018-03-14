@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const fileLocation = `${__dirname}/../data/mock_user_data.json`
+const fileLocation = `${__dirname}/data/mock_users.json`
 module.exports = {
     up: (queryInterface, Sequelize) => {
         const str = fs.readFileSync(fileLocation)

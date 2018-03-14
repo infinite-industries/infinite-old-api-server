@@ -1,7 +1,7 @@
 const async = require('async')
 const fs = require('fs')
 
-const fileLocation = `${__dirname}/../data/mock_venues.json`
+const fileLocation = `${__dirname}/data/mock_venues.json`
 
 module.exports = {
     up: (queryInterface, Sequelize) => {

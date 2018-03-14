@@ -14,12 +14,18 @@ module.exports = _.extend(DefaultController('user'), {
           })
           .catch(err => callback(err))
     },
-    /*findByIDAndMergeWithEventLists: function(id, callback) {
-        DefaultController.findAndMerge(UserModel, EventListModel, ['lists_my', "lists_follow"], { id },
-            (err, docs) => callback(err, docs ? docs[0] : null));
-    },*/
-    addList: function (id, listID, callback) {
-        console.log('Hi I am a conotrller -', listID);
-        //UserModel.updateOne({ id }, { $push: { lists_my: listID } }, callback);
+    findByIDAndMergeWithEventLists: function(db, id, callback) {
+       db.user.findById(id, {include: [
+               { model: db.event_list, as: 'lists_my', through: { attributes: [] } },
+               { model: db.event_list, as: 'lists_follow', through: { attributes: [] } },
+           ]
+       })
+         .then(data => callback(null, data))
+         .catch(err => callback(err))
+    },
+    addList: function (db, user_id, event_list_id, callback) {
+        db.user_list_ownership.create({ user_id, event_list_id })
+          .then(() => callback())
+          .catch(err => callback(err))
     }
 });

@@ -1,5 +1,5 @@
 const fs = require('fs')
-const fileLocation = __dirname + '/../data/event-listings.json'
+const fileLocation = __dirname + '/data/mock_events.json'
 const async = require('async')
 
 module.exports = {

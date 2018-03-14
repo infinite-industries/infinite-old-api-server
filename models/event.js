@@ -9,30 +9,57 @@ module.exports = (sequelize, DataTypes) => {
     time_start: DataTypes.DATE,
     time_end: DataTypes.DATE,
     when: DataTypes.STRING,
-    website: DataTypes.STRING,
     image: DataTypes.STRING,
     social_image: DataTypes.STRING,
-    venues: DataTypes.ARRAY(DataTypes.STRING), // array of strings for now
+    venue_id: DataTypes.UUIDV4,
     admission_fee: DataTypes.STRING,
     address: DataTypes.STRING,
-    organizers: DataTypes.ARRAY(DataTypes.STRING), // array of strings for now
+    organizers:  {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        set(val) {
+            if (!val)
+                val = []
+
+            this.setDataValue('organizers', val);
+        }
+    },
     map_link: DataTypes.STRING,
     brief_description: DataTypes.STRING,
     description: DataTypes.TEXT,
-    links: DataTypes.ARRAY(DataTypes.STRING),
+    links: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        set(val) {
+            if (!val)
+                val = []
+
+            this.setDataValue('links', val);
+        }
+    },
+    website_link: DataTypes.TEXT,
     ticket_link: DataTypes.STRING,
     fb_event_link: DataTypes.STRING,
     eventbrite_link: DataTypes.STRING,
     bitly_link: DataTypes.STRING,
-    tags: DataTypes.ARRAY(DataTypes.STRING),
+    tags:{
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        set(val) {
+            if (!val)
+                val = []
+
+            this.setDataValue('tags', val);
+        }
+    },
     verified: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        defaultValue: false
+        set(val) {
+            if (!val) // cast any undefined to false
+                val = false
+
+            this.setDataValue('verified', val);
+        }
     }
   }, {});
-  event.associate = function(models) {
-      event.belongsToMany(models.event_list, { through: 'event_list_memberships', as: 'list' })
-  };
+
   return event;
 };

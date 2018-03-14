@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var dotenv = require('dotenv');
 const passport = require('passport');
 const getAPIKeyStrategy = require('./expressMiddleWare/DevTokenAuthStrategy');
-const sequelize = require('./db/connection')()
+const sequelize = require('./utils/connection')()
 
 var app = express();
 

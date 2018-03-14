@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 module.exports = function getConnection() {
-    const sequelize = new Sequelize('infinite_api', 'postgres', 'xxx', {
+    const sequelize = new Sequelize('infinite_api', process.env.POSTGRES_USER, process.env.POSTGRES_PW, {
         host: 'localhost',
         dialect: 'postgres',
         operatorsAliases: false,

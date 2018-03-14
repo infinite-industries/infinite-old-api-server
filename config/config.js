@@ -1,8 +1,8 @@
 module.exports = {
   "development": {
-      logging: console.log,
-    "username": "postgres",
-    "password": "xxx",
+    //logging: console.log, # Uncomment this to output
+    "username": process.env.POSTGRES_USER,
+    "password": process.env.POSTGRES_PW,
     "database": "infinite_api",
     "host": "127.0.0.1",
     "dialect": "postgres"

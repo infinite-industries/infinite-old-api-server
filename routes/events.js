@@ -3,7 +3,11 @@ const EventController = require("../controllers/events");
 const { getDefaultRouter } = require("./helpers/routeHelpers");
 const { Op } = require('sequelize')
 const passport = require('passport');
-const router = getDefaultRouter("events", "event", EventController, { verified: false });
+const router = getDefaultRouter("events", "event", EventController, { verified: false }, {
+    // provides special controller methods for getters to merge data from multiple tables
+    allMethod: EventController.allAndMergeWithVenues,
+    byIDMethod: EventController.findByIDAndMergeWithVenues
+});
 
 // get current verified events
 router.get('/current/non-verified', function(req, res) {

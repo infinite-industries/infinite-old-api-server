@@ -6,8 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING,
     g_map_link: DataTypes.STRING
   }, {});
-  venue.associate = function(models) {
-    // associations can be defined here
-  };
+
+  sequelize.event.belongsTo(venue, { foreignKey: 'venue_id'})
   return venue;
 };

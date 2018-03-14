@@ -7,7 +7,7 @@
  */
 const uuidv4 = require('uuid/v4')
 const DevKeyController = require('../controllers/devKeys')
-const sequelize = require(__dirname + '/../db/connection')()
+const sequelize = require(__dirname + '/../utils/connection')()
 const nconf = require('nconf')
 const debug = require('debug')('scripts:createDevKey')
 const util = require('util')
