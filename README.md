@@ -106,7 +106,7 @@ curl http://localhost:3003/events/current/verified/?apikey=2019529e-7f8c-44f9-89
 
 
 ### Run Postgres through Docker ####
-` docker run -p5432:5432 --name infinite-postgres -e POSTGRES_PASSWORD=xxx -d postgres`
+`docker run -p5432:5432 --name infinite-postgres -e POSTGRES_PASSWORD=xxx -d postgres`
 
 - https://hub.docker.com/_/postgres/
 - Connect from host with `psql -h localhost -U postgres`

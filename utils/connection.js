@@ -1,8 +1,9 @@
-const Sequelize = require('sequelize');
+const Sequelize = require('sequelize')
+require('dotenv').config()
 
 module.exports = function getConnection() {
     const sequelize = new Sequelize('infinite_api', process.env.POSTGRES_USER, process.env.POSTGRES_PW, {
-        host: 'localhost',
+        host: process.env.POSTGRES_HOST,
         dialect: 'postgres',
         operatorsAliases: false,
 
