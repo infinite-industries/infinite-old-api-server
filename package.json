@@ -6,16 +6,14 @@
   "scripts": {
     "start": "node ./index.js",
     "start-dev": "nodemon ./index.js",
+    "start-docker": "npm run setup-dev && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watchify": "watchify -vd -p browserify -e ./src/main.js -o ./public/js/dist.js",
     "deploy": "./deploy.sh production",
-    "dropDB": "mongo infinite-api --eval \"db.dropDatabase()\"",
-    "importEvents": "./scripts/importEvents.js --file ./data/event-listings.json",
     "createTestDevKey": "./scripts/createDevKey.js --user tester --org InfiniteTest --id 2019529e-7f8c-44f9-8996-f52a88b2a314",
-    "createTestEventLists": "./scripts/createTestEventLists.js",
-    "createTestUser": "./scripts/createTestUser.js",
-    "createTestVenues": "./scripts/createTestVenues.js ",
-    "setupDevEnv": "npm run importEvents && npm run createTestEventLists && npm run createTestDevKey && npm run createTestUser && npm run createTestVenues"
+    "setup-create-db": "sequelize db:create",
+    "setup-drop-db": "sequelize db:drop",
+    "setup-dev": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all && npm run createTestDevKey"
   },
   "keywords": [
     "art",
@@ -30,16 +28,9 @@
     ]
   },
   "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babelify": "^7.3.0",
-    "browserify": "^14.4.0",
     "frisby": "^2.0.1",
     "jest-cli": "^20.0.4",
-    "node-mongo-seeds": "^2.3.1",
-    "nodemon": "^1.15.0",
-    "vueify": "^9.4.1",
-    "watchify": "^3.9.0"
+    "nodemon": "^1.15.0"
   },
   "dependencies": {
     "async": "^2.5.0",
@@ -49,16 +40,13 @@
     "dotenv": "^4.0.0",
     "express": "^4.15.3",
     "lodash": "^4.17.4",
-    "mongodb": "^2.2.31",
-    "mongoose": "^4.11.3",
     "nconf": "^0.8.5",
     "passport": "^0.4.0",
     "passport-localapikey": "0.0.3",
     "path": "^0.12.7",
-    "slack-notify": "^0.1.6",
-    "vue": "^2.4.2",
-    "vue-form-generator": "^2.0.0",
-    "vue-router": "^2.7.0",
-    "vuetify": "^0.14.8"
+    "pg": "^7.4.1",
+    "sequelize": "^4.35.5",
+    "sequelize-cli": "^4.0.0",
+    "slack-notify": "^0.1.6"
   }
 }

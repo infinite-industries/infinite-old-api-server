@@ -7,6 +7,7 @@ const constants = {
 };
 const { getDefaultRouter } = require("./helpers/routeHelpers");
 const router = getDefaultRouter("users", "user", UsersController, {}, {
+	// provides special controller methods for getters to merge data from multiple tables
 	allMethod: UsersController.allAndMergeWithEventLists,
 	byIDMethod: UsersController.findByIDAndMergeWithEventLists,
 

@@ -2,10 +2,10 @@ const passport = require('passport');
 const LocalAPIKeyStrategy = require('passport-localapikey').Strategy;
 const DevKeyController = require('../controllers/devKeys.js');
 
-module.exports = function getAPIKeyStrategy() {
+module.exports = function getAPIKeyStrategy(sequelize) {
 	return new LocalAPIKeyStrategy(
 		function (apikey, done) {
-			DevKeyController.findById(apikey, function(err, key) {
+			DevKeyController.findById(sequelize, apikey, function(err, key) {
 				// error retrieving keys
 				if (err)
 					return done(err);

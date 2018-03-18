@@ -1,14 +1,27 @@
 // event related API endpoints
 const EventController = require("../controllers/events");
 const { getDefaultRouter } = require("./helpers/routeHelpers");
+const { Op } = require('sequelize')
 const passport = require('passport');
-const router = getDefaultRouter("events", "event", EventController, { verified: false });
+const router = getDefaultRouter("events", "event", EventController, { verified: false }, {
+    // provides special controller methods for getters to merge data from multiple tables
+    allMethod: EventController.allAndMergeWithVenues,
+    byIDMethod: EventController.findByIDAndMergeWithVenues
+});
 
 // get current verified events
 router.get('/current/non-verified', function(req, res) {
     const dt = new Date(Date.now());
-    const query = { $and: [{ time_end: { $gt: dt }}, { verified: { $ne: true }}] };
-    EventController.all(function(err, events) {
+		const query = {
+			where: {
+				verified: false,
+				time_end: {}
+			}
+		}
+
+		query.where.time_end[Op.gte] = dt
+    //const query = { $and: [{ time_end: { $gt: dt }}, { verified: { $ne: true }}] };
+    EventController.all(req.app.get('db'), function(err, events) {
         if (err) {
             console.warn('error getting current/verified events: ' + err);
             return res.status(501).json({ status: 'failed: ' + err });
@@ -21,8 +34,16 @@ router.get('/current/non-verified', function(req, res) {
 // get current verified events
 router.get('/current/verified', function(req, res) {
 	const dt = new Date(Date.now());
-	const query = { $and: [{ time_end: { $gt: dt }}, { verified: true }] };
-	EventController.all(function(err, events) {
+	const query = {
+		where: {
+      verified: true,
+      time_end: {}
+		}
+	}
+
+	query.where.time_end[Op.gte] = dt
+
+	EventController.all(req.app.get('db'), function(err, events) {
 		if (err) {
 			console.warn('error getting current/verified events: ' + err);
 			return res.status(501).json({ status: 'failed: ' + err });
@@ -43,7 +64,7 @@ router.put(
 		if (!id)
 			return res.status(404).json({ status: 'id is a required field' });
 
-		EventController.update(id, { verified: true }, function(err) {
+		EventController.update(req.app.get('db'), id, { verified: true }, function(err) {
 			if (err)
 				return res.status(500).json({ status: 'failed: ' + err });
 

@@ -1,20 +1,26 @@
-const EventListModel = require('../models/eventList.js');
-const EventModel = require('../models/events.js');
 const DefaultController = require('./helpers/controllerGenerator');
 const _ = require('lodash');
 
-module.exports = _.extend(DefaultController(EventListModel), {
-	allAndMergeWithEvents: function(callback) {
-		DefaultController.findAndMerge(EventListModel, EventModel, ['events'], {}, callback);
+module.exports = _.extend(DefaultController('event_list'), {
+	allAndMergeWithEvents: function(db, callback) {
+		// includes events in the event list  selection
+	    db.event_list.findAll({ include: { model: db.event, through: { attributes: [] } } })
+          .then(data => callback(null, data))
+          .catch(err => callback(err))
 	},
-	findByIDAndMergeWithEvents: function(id, callback) {
-		DefaultController.findAndMerge(EventListModel, EventModel, ['events'],{ id },
-			(err, docs) => callback(err, docs ? docs[0] : null));
+	findByIDAndMergeWithEvents: function(db, id, callback) {
+		db.event_list.findById(id, { include: { model: db.event, through: { attributes: [] } } })
+		  .then(data => callback(null, data))
+		  .catch(err => callback(err))
 	},
-	addEvent: function(listID, eventID, callback) {
-		EventListModel.updateOne({ id: listID }, { $push: { events: eventID } }, callback);
+	addEvent: function(db, event_list_id, event_id, callback) {
+		db.event_list_membership.create({ event_list_id, event_id })
+		  .then(() => callback())
+		  .catch(err => callback(err))
 	},
-	removeEvent: function(listID, eventID, callback) {
-		EventListModel.updateOne({ id: listID }, { $pull: { events: eventID } }, callback);
+	removeEvent: function(db, event_list_id, event_id, callback) {
+		db.event_list_membership.destroy({ where: { event_list_id, event_id }})
+		  .then(() => callback())
+		  .catch(err => callback(err))
 	}
 });

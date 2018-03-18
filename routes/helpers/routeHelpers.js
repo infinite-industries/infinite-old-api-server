@@ -48,7 +48,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
 
         // allow a custom all method to be passed in
         const allMethod = options && options.allMethod ? options.allMethod : controller.all;
-        allMethod(function(err, data) {
+        allMethod(req.app.get('db'), function(err, data) {
             if (err) {
                 console.warn("error handling request for all %s: %s: ", router_name, err);
                 res.status(500).json({ status: constants.db_error });
@@ -76,7 +76,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
             console.log("handling  get request for %s by id: %s", router_name, id);
 
 			const byIDMethod = options && options.byIDMethod ? options.byIDMethod : controller.findById;
-            byIDMethod(req.params[identifier], function(err, data) {
+            byIDMethod(req.app.get('db'), req.params[identifier], function(err, data) {
                 if(err) {
                     console.warn("error handling request for artist: " + err);
                     res.status(500).json({ "status": constants.db_error });
@@ -106,7 +106,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
 			if (!postJSON)
 				return res.status(422).json({ status: router_name_singular + ' parameter is required' });
 
-			controller.update(id, postJSON, function(err) {
+			controller.update(req.app.get('db'), id, postJSON, function(err) {
 				if (err) {
 					console.warn('error updating "%s"', router_name_singular + ': ' + err);
 					return res.status(500).json({ status: err });
@@ -136,7 +136,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
                 }
             }
 
-            controller.create(postJSON, function(err) {
+            controller.create(req.app.get('db'), postJSON, function(err) {
                 if (err) {
                     console.warn('error creating "%s"', router_name_singular + ': ' + err);
                     return res.status(500).json({ status: err });
@@ -152,7 +152,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
             const id = req.params[identifier]
 	        console.log(`handling delete request for "${router_name}" for event id "${id}"`)
 
-            controller.delete(id, err => {
+            controller.delete(req.app.get('db'), id, err => {
                 if (err) {
                     console.warn(`error destroying "${id}: "${err}"`)
                     return res.status(500).json({ status: err })

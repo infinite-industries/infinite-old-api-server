@@ -48,7 +48,7 @@ npm run importEvents
 ### Create an Event List ###
 ```
 curl -X POST -H "Content-Type: application/json" \
--d '{ "eventList": {"name":"chris list" }, "apikey":"2019529e-7f8c-44f9-8996-f52a88b2a314"}' \
+-d '{ "eventList": {"list_name":"chris list" }, "apikey":"2019529e-7f8c-44f9-8996-f52a88b2a314"}' \
 http://localhost:3003/event-lists
 ```
 
@@ -103,3 +103,12 @@ curl http://localhost:3003/events/current/verified/?apikey=2019529e-7f8c-44f9-89
 
 ### Hey, Dev to Get Test Data In MONGO ###
 `npm run dropDB && npm run setupDevEnv`
+
+
+### Run Postgres through Docker ####
+`docker run -p5432:5432 --name infinite-postgres -e POSTGRES_PASSWORD=xxx -d postgres`
+
+- https://hub.docker.com/_/postgres/
+- Connect from host with `psql -h localhost -U postgres`
+- Note migrations need super user access to run, we probably wan't to run migrations and the application against two different postgres users
+

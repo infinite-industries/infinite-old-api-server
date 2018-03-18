@@ -2,37 +2,51 @@ const async = require('async');
 
 module.exports = DefaultController;
 
-function DefaultController(Model) {
-	const debug = require('debug')('models:' + Model.modelName);
+function DefaultController(modelName) {
+    const debug = require('debug')('models:' + modelName);
 
-	return {
-		findById: function(id, callback) {
-			debug('findById: ' + id);
-			Model.findOne({ id: id }, callback)
-		},
+    return {
+        findById: function(db, id, callback) {
+            debug('findById: ' + id);
+            db[modelName].findById(id)
+              .then(model => callback(null, model))
+              .catch(err => callback(err))
+        },
 
-		all: function(callback, query, filter_field) {
-			debug('all');
-			query = query || {};
+        all: function(db, callback, query, filter_field) {
+            debug('all');
+			      query = query || {};
 
-			if (filter_field) {
-				query[opts.filter_field] = true;
-			}
+            /*if (filter_field) {
+              query[opts.filter_field] = true;
+            }*/
 
-			Model.find(query, callback);
-		},
-		create: function(data, callback) {
-			debug('create: ' + JSON.stringify(data, null, 4));
-			Model.create(data, callback);
-		},
-		delete: (id, callback) => {
-			debug(`delete event "${id}"`)
-			Model.deleteOne({ id }, callback)
-		},
-		update: function(id, data, callback) {
-			Model.updateOne({ id }, data, callback);
-		},
-	};
+            db[modelName].findAll(query)
+              .then(models => {
+                  callback(null, models)
+              })
+              .catch(err => {
+                  callback(err)
+              })
+        },
+        create: function(db, data, callback) {
+            debug('create: ' + JSON.stringify(data, null, 4));
+            db[modelName].create(data, callback)
+              .then(() => callback())
+              .catch(err => callback(err));
+        },
+        delete: (db, id, callback) => {
+            debug(`delete event "${id}"`)
+            db[modelName].destroy({ where: { id } })
+              .then(() => callback())
+              .catch(err => callback(err))
+        },
+        update: function(db, id, data, callback) {
+            db[modelName].update(data, { where: { id }})
+              .then(() => callback())
+              .catch(err => callback(err))
+        },
+    };
 }
 
 DefaultController.findAndMerge = function(Model1, Model2, keys, query, complete) {
