@@ -2,11 +2,11 @@ const Sequelize = require('sequelize')
 require('dotenv').config()
 
 module.exports = function getConnection() {
-    const sequelize = new Sequelize('infinite_api', process.env.POSTGRES_USER, process.env.POSTGRES_PW, {
+    const sequelize = new Sequelize(process.env.POSTGRES_DB, process.env.POSTGRES_USER, process.env.POSTGRES_PW, {
         host: process.env.POSTGRES_HOST,
         dialect: 'postgres',
         operatorsAliases: false,
-/*        ssl: {
+        /*ssl: {
           key: cKey,
           cert: cCert,
           ca: cCA
