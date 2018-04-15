@@ -6,7 +6,11 @@ module.exports = function getConnection() {
         host: process.env.POSTGRES_HOST,
         dialect: 'postgres',
         operatorsAliases: false,
-
+/*        ssl: {
+          key: cKey,
+          cert: cCert,
+          ca: cCA
+        },*/
         pool: {
             max: 5,
             min: 0,

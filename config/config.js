@@ -5,7 +5,7 @@ module.exports = {
     //logging: console.log, # Uncomment this to output
     "username": process.env.POSTGRES_USER,
     "password": process.env.POSTGRES_PW,
-    "database": 'infinite_api',
+    "database": process.env.POSTGRES_DB,
     "host": process.env.POSTGRES_HOST,
     "dialect": "postgres"
   },
