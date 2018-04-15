@@ -12,7 +12,7 @@ module.exports = {
   "test": {
     "username": process.env.POSTGRES_USER,
     "password": process.env.POSTGRES_PW,
-    "database": 'infinite_api',
+    "database": process.env.POSTGRES_DB,
     "host": process.env.POSTGRES_HOST,
     "dialect": "postgres"
   },
