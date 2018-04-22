@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-ROOT='/home/deploy/infinite'
-USER='deploy'
+ROOT='/home/ubuntu/infinite'
+USER='ubuntu'
 
 SERVER=''
 if [[ "production" = $1 ]]; then
-  SERVER='test3.infinite.industries'
+  SERVER='api.infinite.industries'
 elif [[ "staging" = $1 ]]; then
-  SERVER='test3.infinite.industries'  #not used yet
+  SERVER='staging-api.infinite.industries'  #not used yet
 else
   echo Please specify environment to deploy to.
   echo Usage: ./deploy.sh environment
@@ -15,7 +15,7 @@ else
   exit
 fi
 
-ssh $USER@$SERVER << EOF
+ssh $USER@$SERVER bash --login -i << EOF
   cd $ROOT
   echo 'Updating sources'
   git reset --hard HEAD
