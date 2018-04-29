@@ -1,3 +1,15 @@
+# Getting Started
++ git clone git@github.com:infinite-industries/infinite.git
++ cd into `infinite` and run `npm install`
++ copy the file .env.sample to .env and update the environment variables
+   + The most important values to change are the ones regarding Postgres. You should have a postgres instance running with a database inside of it called 'infinite-api'. The POSTGRES_USER should be set to  a user that can  SELECT, INSERT, UPDATE, DELETE, and CREATE create tables in the database
++ run `setup-dev`
+
+# Dependencies
++ NodeJS 8.x.x
++ Postgres 9.x.x
+
+
 # Proposed Flow
 
 <!-- 1. *Get Random Artwork* Client makes an API call for an artwork ID. Unique ID is returned, client can check if the artwork has been shown already. If not, make another query for artwork by ID and proceed to show to user.
@@ -9,8 +21,7 @@
 <!-- + alerts
  -->
 
-# Dependencies
-+ MongoDB
+
 
 <!-- # Seeding Dev
 Note: Most seeds are still incomplete <br />
