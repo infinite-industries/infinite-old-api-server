@@ -2,8 +2,8 @@
 + git clone git@github.com:infinite-industries/infinite.git
 + cd into `infinite` and run `npm install`
 + copy the file .env.sample to .env and update the environment variables
-   + The most important values to change are the ones regarding Postgres. You should have a postgres instance running with a database inside of it called 'infinite-api'. The POSTGRES_USER should be set to  a user that can  SELECT, INSERT, UPDATE, DELETE, and CREATE create tables in the database
-+ run `setup-dev`
+   + The most important values to change are the ones regarding Postgres. You should have a postgres instance running with a database inside of it called 'infinite-api'. The POSTGRES_USER should be set to a superuser (for now, this should be changed for production but is necessary for migrations/seeds to run now)
++ execute `npm run setup-dev`
 
 # Dependencies
 + NodeJS 8.x.x
