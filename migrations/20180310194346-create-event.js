@@ -24,9 +24,13 @@ module.exports = {
           allowNull: false,
           type: Sequelize.DATE
         },
-        when: {
-          allowNull: false,
-          type: Sequelize.STRING
+        multi_day: {
+            allowNull: true,
+            type: Sequelize.BOOLEAN
+        },
+        additional_dates: {
+            allowNull: true,
+            type: Sequelize.JSONB
         },
         image: Sequelize.STRING,
         social_image: Sequelize.STRING,
