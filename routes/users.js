@@ -23,7 +23,7 @@ router.put(
 		console.log("Adding a list - %s for user- %s",req.params.listID, req.params.userID);
 
 
-		UsersController.addList(req.params.userID, req.params.listID, function(err) {
+		UsersController.addList(req.app.get('db'), req.params.userID, req.params.listID, function(err) {
 			if (err) {
 				console.warn("error adding event to list: " + err);
 				res.status(500).json({ "status": constants.db_error });
