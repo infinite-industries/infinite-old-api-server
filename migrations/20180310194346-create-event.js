@@ -43,11 +43,18 @@ module.exports = {
         },
         admission_fee: Sequelize.STRING,
         address: Sequelize.STRING,
+        organizer_contact: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+
+        // NOT YET IMPLEMENTED (USE singular organizer contact)
         organizers: {
             type: Sequelize.ARRAY(Sequelize.STRING),
             allowNull: true,
             defaultValue: []
         },
+
         map_link: Sequelize.STRING,
         brief_description: Sequelize.STRING,
         description: Sequelize.TEXT,

@@ -15,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     venue_id: DataTypes.UUIDV4,
     admission_fee: DataTypes.STRING,
     address: DataTypes.STRING,
+    organizer_contact: DataTypes.STRING,
+    // NOT IMPLEMENTED
     organizers:  {
         type: DataTypes.ARRAY(DataTypes.STRING),
         set(val) {
