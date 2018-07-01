@@ -45,14 +45,7 @@ module.exports = {
         address: Sequelize.STRING,
         organizer_contact: {
             type: Sequelize.STRING,
-            allowNull: false
-        },
-
-        // NOT YET IMPLEMENTED (USE singular organizer contact)
-        organizers: {
-            type: Sequelize.ARRAY(Sequelize.STRING),
-            allowNull: true,
-            defaultValue: []
+            allowNull: true
         },
 
         map_link: Sequelize.STRING,

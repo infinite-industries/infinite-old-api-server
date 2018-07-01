@@ -1,15 +1,32 @@
 # Getting Started
-+ git clone git@github.com:infinite-industries/infinite.git
-+ cd into `infinite` and run `npm install`
-+ copy the file .env.sample to .env and update the environment variables
+1. git clone git@github.com:infinite-industries/infinite.git
+2. cd into `infinite` and run `npm install`
+3. copy the file .env.sample to .env and update the environment variables
    + The most important values to change are the ones regarding Postgres. You should have a postgres instance running with a database inside of it called 'infinite-api'. The POSTGRES_USER should be set to a superuser (for now, this should be changed for production but is necessary for migrations/seeds to run now)
-+ execute `npm run setup-dev`
-+ execute `npm run start-dev`
+4. if this is your first time running it:
+    + execute `npm run  && setup-create-db && npm run setup-dev`
+5. execute `npm run start-dev`
+
+In the future after pulling down new changes instead of running `npm run setup-dev`, instead execute `npm run setup-refresh-db`. This will drop the contents of and rebuild the existing database with the latest schemas  and default data.
 
 # Dependencies
 + NodeJS 8.x.x
 + Postgres 9.x.x
 
+# NPM Commands
+   * start: starts the api server
+   * start-dev: starts the api server and re-starts when files are changed
+   * start-docker: runs setup-dev then starts the api server
+   * test: runs tests (not yet implemented)
+   * watchify: [Not Used Anymore],
+   * deploy: deploys to production assuming you have valid certs,
+   * createTestDevKey: creates a hard-coded dev key that can be used for tests,
+   * setup-create-db: creates the database (must be done with a postgres super user),
+   * setup-drop-db: drops the database,
+   * setup-migrate-db: runs migrations to create the correct schema in the database,
+   * setup-dev: run this the first time you start the project; it creates all the schemas and populates the database with test dev key and test data loaded from the production json
+   * setup-refresh-db: run this after pulling in changes, it drops the database, re-creates it and runs setup-dev to make sure your environment is up to date,
+   * setup-seed-from-prod: loads data from the json file driving the current production environment
 
 # Proposed Flow
 
