@@ -1,6 +1,10 @@
 // User (devs curators) management here
 const UsersController = require("../controllers/users");
-const passport = require('passport');
+const JWTParser = require(__dirname + '/../utils/JWTParser')
+const JWTAuthenticator = require(__dirname + '/../utils/JWTAuthenticator')
+
+const authChain = [JWTParser, JWTAuthenticator(false)] // require token
+
 const constants = {
 	db_error: "db_fail",
 	success_status: "success"
@@ -12,14 +16,14 @@ const router = getDefaultRouter("users", "user", UsersController, {}, {
 	byIDMethod: UsersController.findByIDAndMergeWithEventLists,
 
 	// secure the read as well as the write routes for users
-	readMiddleware: [passport.authenticate('localapikey', { session: false })]
+	readMiddleware: authChain
 });
 
+// add a new list for this user
 router.put(
-	"/addList/:userID/:listID",
-	passport.authenticate('localapikey', { session: false }),
+	"/addList/:userID/:listID", // TODO (CAW) user id should come from the token not the url
+	authChain,
 	function(req, res) {
-
 		console.log("Adding a list - %s for user- %s",req.params.listID, req.params.userID);
 
 

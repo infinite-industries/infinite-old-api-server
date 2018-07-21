@@ -5,11 +5,14 @@ var bodyParser = require('body-parser');
 var dotenv = require('dotenv');
 const passport = require('passport');
 const getAPIKeyStrategy = require('./expressMiddleWare/DevTokenAuthStrategy');
+const fs = require('fs')
 const sequelize = require('./utils/connection')()
-
+const secretString = fs.readFileSync(process.env.jwtPEM || './keys/1nfinite.pem');
 var app = express();
 
 app.set('db', sequelize)
+app.set('superSecret', secretString);
+
 app.use(bodyParser.json());
 app.use(passport.initialize());
 passport.use(getAPIKeyStrategy(sequelize));

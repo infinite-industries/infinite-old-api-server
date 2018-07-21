@@ -1,6 +1,11 @@
 // event related API endpoints
 const EventListController = require("../controllers/eventLists");
-const passport = require('passport');
+const JWTParser = require(__dirname + '/../utils/JWTParser')
+const JWTAuthenticator = require(__dirname + '/../utils/JWTAuthenticator')
+
+// requires an authenticated user, but not admin
+const JWTAuthChain = [JWTParser, JWTAuthenticator(false)]
+
 const constants = {
 	db_error: "db_fail",
 	success_status: "success"
@@ -9,12 +14,15 @@ const { getDefaultRouter } = require("./helpers/routeHelpers");
 const router = getDefaultRouter("eventLists", "eventList", EventListController, { verified: false }, {
     // provides special controller methods for getters to merge data from multiple tables
 	allMethod: EventListController.allAndMergeWithEvents,
-	byIDMethod: EventListController.findByIDAndMergeWithEvents
+	byIDMethod: EventListController.findByIDAndMergeWithEvents,
+  	readMiddleware: JWTAuthChain,
+  	createMiddleware: JWTAuthChain,
+  	updateMiddleware: JWTAuthChain
 });
 
 router.put(
 	"/addEvent/:eventListID/:EventID",
-	passport.authenticate('localapikey', { session: false }),
+	JWTAuthChain,
 	function(req, res) {
 	EventListController.addEvent(req.app.get('db'), req.params.eventListID, req.params.EventID, function(err) {
 		if (err) {
@@ -28,7 +36,7 @@ router.put(
 
 router.put(
 	"/removeEvent/:eventListID/:EventID",
-	passport.authenticate('localapikey', { session: false }),
+	JWTAuthChain,
 	function(req, res) {
 		EventListController.removeEvent(req.app.get('db'), req.params.eventListID, req.params.EventID, function(err) {
 			if (err) {

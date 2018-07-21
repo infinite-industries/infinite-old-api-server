@@ -1,6 +1,9 @@
 const express = require("express");
 const uuidv1 = require('uuid/v1');
-const passport = require('passport');
+const JWTParser = require(__dirname + '/../../utils/JWTParser')
+const JWTAuthenticator = require(__dirname + '/../../utils/JWTAuthenticator')
+
+const JWTAuthChain = [JWTParser, JWTAuthenticator(true)]
 const constants = {
     db_error: 'db_fail',
     success_status: 'success'
@@ -16,7 +19,9 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
     const identifier = router_name_singular + 'ID';
     const router = express.Router();
     options = options || {};
-    const readMiddleware = options.readMiddleware || [];
+    const readMiddleware = options.readMiddleware || [JWTParser]; // by default parse any tokens, don't require them
+    const createMiddleware = options.createMiddleware || JWTAuthChain // by default admin only
+    const updateMiddleware = options.updateMiddleware || JWTAuthChain // by default admin only
 
 	router.use('/', function(req, res, next) {
 		res.header('Access-Control-Allow-Origin', '*');
@@ -72,6 +77,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
     router.get("/:" + identifier,
 		readMiddleware,
         function(req, res) {
+            console.log(`${req.url}: ${JSON.stringify(req.token, null, 4)}`)
             const id = req.params[identifier];
             console.log("handling  get request for %s by id: %s", router_name, id);
 
@@ -96,7 +102,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
 
     router.put(
         '/:' + identifier,
-		passport.authenticate('localapikey', { session: false }),
+        updateMiddleware,
         (req, res) => {
 			const id = req.params[identifier];
 
@@ -118,7 +124,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
 
 	router.post(
 	    '/',
-		passport.authenticate('localapikey', { session: false }),
+        createMiddleware,
         function(req, res) {
             console.log("handling post request for '%s'", router_name);
             const postJSON= req.body[router_name_singular];
@@ -147,7 +153,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
 
 	router.delete(
 	    '/:' + identifier,
-        passport.authenticate('localapikey', { session: false }),
+        updateMiddleware,
         (req, res) => {
             const id = req.params[identifier]
 	        console.log(`handling delete request for "${router_name}" for event id "${id}"`)
