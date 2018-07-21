@@ -17,7 +17,7 @@ module.exports = function getConnection() {
             acquire: 30000,
             idle: 10000
         },
-        logging: true
+        logging: false
     })
 
     sequelize.event = sequelize.import(__dirname + '/../models/event');

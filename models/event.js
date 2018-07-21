@@ -6,10 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     title: DataTypes.STRING,
     slug: DataTypes.STRING,
-    time_start: DataTypes.DATE,
-    time_end: DataTypes.DATE,
+    time_start: DataTypes.DATE, // delete when front end is updated to use dates
+    time_end: DataTypes.DATE, // delete when front end is updated to use dates
     multi_day: DataTypes.BOOLEAN,
-    additional_dates: DataTypes.JSONB,
+    additional_dates: DataTypes.JSONB, // delete when front end is updated to use dates
+    dates: DataTypes.JSONB,
     image: DataTypes.STRING,
     social_image: DataTypes.STRING,
     venue_id: DataTypes.UUIDV4,

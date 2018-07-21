@@ -21,7 +21,6 @@ module.exports = (req, res, next ) => {
         req.token = token
         req.decoded = decoded;
         req.isInfiniteAdmin = decoded['https://infinite.industries.com/isInfiniteAdmin']
-        console.log('!!! isAdmin: ' + !!req.isInfiniteAdmin)
         req.venueIDs = decoded['https://infinite.industries.com/venueIDs']
 
         // got a user

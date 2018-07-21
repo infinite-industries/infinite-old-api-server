@@ -16,11 +16,11 @@ module.exports = {
             type: Sequelize.STRING,
             allowNull: false
         },
-        time_start: {
+        time_start: { // delete when front end is updated to use dates
           allowNull: false,
           type: Sequelize.DATE
         },
-        time_end: {
+        time_end: { // delete when front end is updated to use dates
           allowNull: false,
           type: Sequelize.DATE
         },
@@ -28,7 +28,11 @@ module.exports = {
             allowNull: true,
             type: Sequelize.BOOLEAN
         },
-        additional_dates: {
+        dates: {
+            allowNull: true,
+            type: Sequelize.JSONB
+        },
+        additional_dates: { // delete when front end is updated to use dates
             allowNull: true,
             type: Sequelize.JSONB
         },
