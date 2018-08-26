@@ -53,7 +53,7 @@ module.exports = {
         },
 
         map_link: Sequelize.STRING,
-        brief_description: Sequelize.STRING,
+        brief_description: Sequelize.TEXT,
         description: Sequelize.TEXT,
         links: {
             type: Sequelize.ARRAY(Sequelize.STRING),
@@ -61,7 +61,7 @@ module.exports = {
             defaultValue: []
         },
         website_link: Sequelize.TEXT,
-        ticket_link: Sequelize.STRING,
+        ticket_link: Sequelize.TEXT,
         fb_event_link: Sequelize.STRING,
         eventbrite_link: Sequelize.STRING,
         bitly_link: Sequelize.STRING,
