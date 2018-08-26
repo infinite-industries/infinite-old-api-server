@@ -17,11 +17,11 @@ module.exports = {
             allowNull: false
         },
         time_start: { // delete when front end is updated to use dates
-          allowNull: false,
+          allowNull: true,
           type: Sequelize.DATE
         },
         time_end: { // delete when front end is updated to use dates
-          allowNull: false,
+          allowNull: true,
           type: Sequelize.DATE
         },
         multi_day: {

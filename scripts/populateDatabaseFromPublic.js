@@ -9,6 +9,7 @@ const urlVenueJSON =
   'https://raw.githubusercontent.com/infinite-industries/front_end_infinite/master/public/venue-list.json';
 const urlEventsJSON =
   'https://raw.githubusercontent.com/infinite-industries/front_end_infinite/master/public/event-listings.json';
+
 const errors = [];
 
 (async function () {
@@ -42,6 +43,8 @@ const errors = [];
       }, nextTask);
     },
     (nextTask) => {
+
+      console.log("VENUES ADDED");
       asyncjs.map(eventsJSON, (eventEntry, nextEntry) => {
         if (eventEntry.type !== 'calendar_event') // for now only include original style events
           return nextEntry();

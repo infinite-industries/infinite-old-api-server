@@ -13,7 +13,7 @@ const router = getDefaultRouter("events", "event", EventController, { verified: 
   	updateMiddleware: [JWTParser, JWTAuthenticator(true)] // requires admin token to update (put)
 });
 
-// get current verified events
+// get current non or un-verified events
 router.get('/current/non-verified',
   [JWTParser, JWTAuthenticator(true)], // only admin can see non-verified events
   function(req, res) {
