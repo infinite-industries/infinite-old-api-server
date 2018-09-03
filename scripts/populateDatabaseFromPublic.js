@@ -52,6 +52,10 @@ const errors = [];
         // everything coming from this file has been verified
         eventEntry.verified = true;
 
+        // map old time_start, time_end values to date_time array
+        eventEntry.date_times = [
+          { start_time: eventEntry.time_start, end_time: eventEntry.time_end }
+        ]
         console.log(`creating ${eventEntry.id}`)
         EventController.create(sequelize, eventEntry, (error) => {
           if (error) {

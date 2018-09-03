@@ -28,7 +28,7 @@ module.exports = {
             allowNull: true,
             type: Sequelize.BOOLEAN
         },
-        dates: {
+        date_times: {
             allowNull: true,
             type: Sequelize.JSONB
         },

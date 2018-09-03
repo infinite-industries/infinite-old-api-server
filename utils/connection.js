@@ -17,10 +17,11 @@ module.exports = function getConnection() {
             acquire: 30000,
             idle: 10000
         },
-        logging: false
+        logging: true
     })
 
     sequelize.event = sequelize.import(__dirname + '/../models/event');
+    sequelize.current_event = sequelize.import(__dirname + '/../models/current_event')
     sequelize.event_list_membership = sequelize.import(__dirname + '/../models/event_list_membership')
     sequelize.event_list = sequelize.import(__dirname + '/../models/event_list')
     sequelize.dev_key = sequelize.import(__dirname + '/../models/dev_key')
