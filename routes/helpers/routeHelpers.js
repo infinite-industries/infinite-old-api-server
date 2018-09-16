@@ -1,13 +1,14 @@
 const express = require("express");
 const uuidv1 = require('uuid/v1');
-const JWTParser = require(__dirname + '/../../utils/JWTParser')
 const JWTAuthenticator = require(__dirname + '/../../utils/JWTAuthenticator')
 
-const JWTAuthChain = [JWTParser, JWTAuthenticator(true)]
+const JWTAuthChain = [JWTAuthenticator(true)]
 const constants = {
     db_error: 'db_fail',
     success_status: 'success'
 };
+
+const idRegExp = '([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})'
 
 module.exports = {
     constants,
@@ -16,10 +17,10 @@ module.exports = {
 
 function getDefaultRouter(router_name, router_name_singular, controller, forcedValues, options) {
     const debug = require('debug')('router:' + router_name);
-    const identifier = router_name_singular + 'ID';
+    const identifier = `${router_name_singular}ID${idRegExp}`;
     const router = express.Router();
     options = options || {};
-    const readMiddleware = options.readMiddleware || [JWTParser]; // by default parse any tokens, don't require them
+    const readMiddleware = options.readMiddleware || []; // by default parse any tokens, don't require them
     const createMiddleware = options.createMiddleware || JWTAuthChain // by default admin only
     const updateMiddleware = options.updateMiddleware || JWTAuthChain // by default admin only
 

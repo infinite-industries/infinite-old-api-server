@@ -1,9 +1,8 @@
 // User (devs curators) management here
 const UsersController = require("../controllers/users");
-const JWTParser = require(__dirname + '/../utils/JWTParser')
 const JWTAuthenticator = require(__dirname + '/../utils/JWTAuthenticator')
 
-const authChain = [JWTParser, JWTAuthenticator(false)] // require token
+const authChain = [JWTAuthenticator(false)] // require token
 
 const constants = {
 	db_error: "db_fail",
@@ -18,6 +17,10 @@ const router = getDefaultRouter("users", "user", UsersController, {}, {
 	// secure the read as well as the write routes for users
 	readMiddleware: authChain
 });
+
+router.get("/current", authChain, (req, res) => {
+  res.status(200).json({ user: req.user })
+})
 
 // add a new list for this user
 router.put(

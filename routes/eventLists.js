@@ -1,10 +1,9 @@
 // event related API endpoints
 const EventListController = require("../controllers/eventLists");
-const JWTParser = require(__dirname + '/../utils/JWTParser')
 const JWTAuthenticator = require(__dirname + '/../utils/JWTAuthenticator')
 
 // requires an authenticated user, but not admin
-const JWTAuthChain = [JWTParser, JWTAuthenticator(false)]
+const JWTAuthChain = [JWTAuthenticator(false)]
 
 const constants = {
 	db_error: "db_fail",

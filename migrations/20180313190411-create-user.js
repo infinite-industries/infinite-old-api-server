@@ -8,6 +8,17 @@ module.exports = {
           type: Sequelize.UUID,
           defaultValue: Sequelize.literal('uuid_generate_v4()')
       },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+      },
+      nickname: {
+        type: Sequelize.STRING
+      },
+      picture: {
+        type: Sequelize.STRING
+      },
       identifier: {
         type: Sequelize.STRING
       },
