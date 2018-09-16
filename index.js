@@ -39,8 +39,6 @@ app.use((req, res, next) => {
           isInfiniteAdmin: req.isInfiniteAdmin,
           venueIDs: req.venueIDs,
         }
-
-        console.log(user)
       }
 
       next()
