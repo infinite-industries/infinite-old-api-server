@@ -17,7 +17,9 @@ module.exports = {
 
 function getDefaultRouter(router_name, router_name_singular, controller, forcedValues, options) {
     const debug = require('debug')('router:' + router_name);
-    const identifier = `${router_name_singular}ID${idRegExp}`;
+    const paramID = `${router_name_singular}ID`
+    const identifier = paramID + idRegExp;
+
     const router = express.Router();
     options = options || {};
     const readMiddleware = options.readMiddleware || []; // by default parse any tokens, don't require them
@@ -79,17 +81,18 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
 		readMiddleware,
         function(req, res) {
             console.log(`${req.url}: ${JSON.stringify(req.token, null, 4)}`)
-            const id = req.params[identifier];
+            const id = req.params[paramID]
+
             console.log("handling  get request for %s by id: %s", router_name, id);
 
 			const byIDMethod = options && options.byIDMethod ? options.byIDMethod : controller.findById;
-            byIDMethod(req.app.get('db'), req.params[identifier], function(err, data) {
+            byIDMethod(req.app.get('db'), id, function(err, data) {
                 if(err) {
                     console.warn("error handling request for artist: " + err);
                     res.status(500).json({ "status": constants.db_error });
                 }
                 else if (data===null) {
-                    debug('could not find the requested %s:%s', router_name_singular, req.params[identifier]);
+                    debug('could not find the requested %s:%s', router_name_singular, id);
                     res.status(404).json({"status":"no_such_id"});
                 }
                 else {
@@ -105,7 +108,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
         '/:' + identifier,
         updateMiddleware,
         (req, res) => {
-			const id = req.params[identifier];
+			const id = req.params[paramID];
 
 			console.log("handling put request for '%s' on id '%s'", router_name, id);
 			const postJSON= req.body[router_name_singular];
@@ -156,7 +159,7 @@ function getDefaultRouter(router_name, router_name_singular, controller, forcedV
 	    '/:' + identifier,
         updateMiddleware,
         (req, res) => {
-            const id = req.params[identifier]
+            const id = req.params[paramID]
 	        console.log(`handling delete request for "${router_name}" for event id "${id}"`)
 
             controller.delete(req.app.get('db'), id, err => {
