@@ -1,20 +1,38 @@
+# Dependencies
+
++ NodeJS 8.x.x
++ Postgres 9.x.x
+
 # Getting Started
+
 1. git clone git@github.com:infinite-industries/infinite.git
 2. cd into `infinite` and run `npm install`
 3. copy the file .env.sample to .env and update the environment variables
    + The most important values to change are the ones regarding Postgres. You should have a postgres instance running with a database inside of it called 'infinite-api'. The POSTGRES_USER should be set to a superuser (for now, this should be changed for production but is necessary for migrations/seeds to run now)
-4. if this is your first time running it:
-    + execute `npm run  && setup-create-db && npm run setup-dev`
-5. execute `npm run start-dev`
+4. Create a folder called `keys\
+5. Obtain a copy of infinite.pem from a current dev (Sorry this is temporary just reach out to us)
+6. Setup Postgres (For Help See Next Section)
+7. If this is your first time running it:
+    + execute `npm run  && setup-create-db && npm run setup-refresh-db`
+8. execute `npm run start-dev`
 
-In the future after pulling down new changes instead of running `npm run setup-dev`, instead execute `npm run setup-refresh-db`. This will drop the contents of and rebuild the existing database with the latest schemas  and default data.
+# Setting up Postgres
 
-# Dependencies
-+ NodeJS 8.x.x
-+ Postgres 9.x.x
+You can download installers from https://www.postgresql.org/ or if you have Docker setup simply run:
+
+```
+docker run -d /
+--restart unless-stopped /
+--name ininite-db /
+--port 5432:5432 /
+-e POSTGRES_PASSWORD xxx postgres
+```
+
+##After pulling new changes## run `npm run setup-refresh-db`. This will drop the contents of and rebuild the existing database with the latest schemas and default data.
 
 # NPM Commands
-   * start: starts the api server
+
+* start: starts the api server
    * start-dev: starts the api server and re-starts when files are changed
    * start-docker: runs setup-dev then starts the api server
    * test: runs tests (not yet implemented)
