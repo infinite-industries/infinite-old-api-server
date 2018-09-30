@@ -2,7 +2,7 @@
 const EventController = require('../controllers/events')
 const CurrentEventController = require('../controllers/currentEvents')
 const { getDefaultRouter } = require('./helpers/routeHelpers')
-const { Op } = require('sequelize')
+const { literal } = require('sequelize')
 const JWTAuthenticator = require(__dirname + '/../utils/JWTAuthenticator')
 
 const router = getDefaultRouter("events", "event", EventController, { verified: false }, {
@@ -26,7 +26,7 @@ router.get('/current/non-verified',
 		//query.where.time_end[Op.gte] = dt
     //const query = { $and: [{ time_end: { $gt: dt }}, { verified: { $ne: true }}] };
     CurrentEventController.all(req.app.get('db'), function(err, events) {
-        if (err) {
+    	if (err) {
             console.warn('error getting current/verified events: ' + err);
             return res.status(501).json({ status: 'failed: ' + err });
         }
@@ -41,7 +41,8 @@ router.get('/current/verified',
 	const query = {
 		where: {
 		  verified: true
-		}
+		},
+	  	order: literal('start_time DESC')
 	}
 
 	CurrentEventController.all(req.app.get('db'), function(err, events) {

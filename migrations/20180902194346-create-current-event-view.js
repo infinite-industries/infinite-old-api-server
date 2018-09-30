@@ -4,7 +4,11 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.sequelize.query(
      'CREATE VIEW current_events AS\n' +
-      'SELECT * FROM events\n' +
+      'SELECT' +
+      ' *,\n' +
+      ' CAST(events.date_times->0->>\'start_time\' AS TIMESTAMP) AS start_time,\n' +
+      ' CAST(events.date_times->0->>\'end_time\' AS TIMESTAMP) AS end_time\n' +
+      'FROM events\n' +
       '   WHERE id IN(SELECT DISTINCT (events_with_times.id)\n' +
       '               FROM (SELECT events.*,\n' +
       '                            CAST(jsonb_array_elements(events.date_times)->>\'end_time\' AS TIMESTAMP) AS end_timestamp\n' +
