@@ -8,7 +8,8 @@ const JWTAuthenticator = require(__dirname + '/../utils/JWTAuthenticator')
 const router = getDefaultRouter("events", "event", EventController, { verified: false }, {
     // provides special controller methods for getters to merge data from multiple tables
     allMethod: EventController.allAndMergeWithVenues,
-    byIDMethod: EventController.findByIDAndMergeWithVenues,
+		byIDMethod: EventController.findByIDAndMergeWithVenues,
+		createMiddleware: [], // anyone can create a new event
   	updateMiddleware: [JWTAuthenticator(true)] // requires admin token to update (put)
 });
 
