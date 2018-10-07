@@ -7,6 +7,7 @@
     "start": "node ./index.js",
     "start-dev": "nodemon ./index.js",
     "start-docker": "npm run setup-dev && npm run start",
+    "start-test": "jwtPEM=\"./keys/1nfinite_testing.pem\" nodemon ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watchify": "watchify -vd -p browserify -e ./src/main.js -o ./public/js/dist.js",
     "deploy": "./deploy.sh production",
