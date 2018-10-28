@@ -43,7 +43,7 @@ router.get('/current/verified',
 		where: {
 		  verified: true
 		},
-	  	order: literal('start_time DESC')
+	  	order: literal('start_time ASC')
 	}
 
 	CurrentEventController.all(req.app.get('db'), function(err, events) {
