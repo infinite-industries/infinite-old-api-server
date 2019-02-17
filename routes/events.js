@@ -4,12 +4,13 @@ const CurrentEventController = require('../controllers/currentEvents')
 const { getDefaultRouter } = require('./helpers/routeHelpers')
 const { literal } = require('sequelize')
 const JWTAuthenticator = require(__dirname + '/../utils/JWTAuthenticator')
+const DatesToISO = require(__dirname + '/middleware/datesToISO')
 
 const router = getDefaultRouter("events", "event", EventController, { verified: false }, {
     // provides special controller methods for getters to merge data from multiple tables
     allMethod: EventController.allAndMergeWithVenues,
-		byIDMethod: EventController.findByIDAndMergeWithVenues,
-		createMiddleware: [], // anyone can create a new event
+	byIDMethod: EventController.findByIDAndMergeWithVenues,
+	createMiddleware: [DatesToISO], // anyone can create a new event; Dates will be converted form local to UTC/ISO
   	updateMiddleware: [JWTAuthenticator(true)] // requires admin token to update (put)
 });
 
@@ -17,7 +18,6 @@ const router = getDefaultRouter("events", "event", EventController, { verified: 
 router.get('/current/non-verified',
   [JWTAuthenticator(true)], // only admin can see non-verified events
   function(req, res) {
-    const dt = new Date(Date.now());
 		const query = {
 			where: {
 				verified: false
