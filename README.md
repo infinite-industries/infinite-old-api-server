@@ -1,3 +1,5 @@
+**Not Maintained** Development has moved to [infinite-industries/infinite](https://github.com/infinite-industries/infinite)
+
 # Dependencies
 
 + NodeJS 8.x.x
